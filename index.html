@@ -1,12 +1,5 @@
 
 
-
-
-
-
-
-
-
       <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,22 +11,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* HEADER LOGO IMAGE CSS */
-
+  /* --- NEW LOGO CSS --- */
 .logo {
     display: flex;
     align-items: center;
+    gap: 15px; /* Logo image-um text-um thammilulla gap */
 }
 
 .logo img {
-    height: 70px;
-    width: auto;
+    height: 100px !important; /* Ivide ningalkku vendra size kodukkaam (eg: 120px, 150px) */
+    width: auto !important;
+    display: block;
 }
 
-/* Mobile */
-@media (max-width: 600px) {
+.logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    white-space: nowrap; /* Text randu line aavathirikkaan */
+}
+
+/* Mobile size adjust cheyyaan */
+@media (max-width: 768px) {
     .logo img {
-        height: 40px;
+        height: 60px !important;
+    }
+    .logo-text {
+        font-size: 18px;
     }
 }
 
@@ -249,7 +252,7 @@
 
         .btn {
             display: inline-block;
-            padding: 15px 40px;
+            padding: 15px 250px;
             background-color: var(--primary-black);
             color: var(--primary-white);
             text-decoration: none;
@@ -2418,8 +2421,107 @@ footer {
 .hero-buttons a:hover {
   transform: translateY(-5px) scale(1.05);
 }
+        /* --- OVERLAP FIX START --- */
 
+/* 1. Header fixed aayathu kondulla overlap maattan */
+header {
+    position: relative !important; /* Fixed maatti relative aakkunnu */
+    height: auto !important;
+    padding: 20px 0;
+}
 
+/* 2. Hero section (Main Heading) mukalilekk kayari pokathirikkaan */
+.hero {
+    margin-top: 0 !important;
+    padding-top: 60px !important; /* Logo-ykk sheshamulla gap ivide adjust cheyyaam */
+}
+
+/* 3. Logo text-um image-um kootti muttathirikkaan */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    height: 120px !important; /* Ivide ningalkku vendra vlippam kodukkuka */
+    width: auto !important;
+}
+
+/* Mobile-il overlap fix cheyyaan */
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 30px !important;
+    }
+    .logo img {
+        height: 60px !important;
+    }
+}
+/* --- OVERLAP FIX END --- */
+/* --- OVERLAP FIX START --- */
+
+/* 1. Header fixed aayathu kondulla overlap maattan */
+header {
+    position: relative !important; /* Fixed maatti relative aakkunnu */
+    height: auto !important;
+    padding: 20px 0;
+}
+
+/* 2. Hero section (Main Heading) mukalilekk kayari pokathirikkaan */
+.hero {
+    margin-top: 0 !important;
+    padding-top: 60px !important; /* Logo-ykk sheshamulla gap ivide adjust cheyyaam */
+}
+
+/* 3. Logo text-um image-um kootti muttathirikkaan */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    height: 120px !important; /* Ivide ningalkku vendra vlippam kodukkuka */
+    width: auto !important;
+}
+
+/* Mobile-il overlap fix cheyyaan */
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 30px !important;
+    }
+    .logo img {
+        height: 60px !important;
+    }
+}
+/* --- OVERLAP FIX END --- */
+        /* --- FINAL REPAIR CODE --- */
+
+/* 1. Header-ine fixed aayathil ninnum maattunnu */
+header {
+    position: relative !important;
+    height: auto !important;
+    padding: 20px 0 !important;
+    top: 0 !important;
+}
+
+/* 2. Logo valuthaakkanulla code */
+.logo img {
+    height: 120px !important; /* Ivide ningalkku ishtamulla size kodukkaam */
+    width: auto !important;
+}
+
+/* 3. Thazheyulla section-u gap kodukkunnu */
+.hero {
+    margin-top: 0 !important;
+    padding-top: 50px !important;
+}
+
+/* 4. Menu links (Home, Services) position adjust cheyyaan */
+nav {
+    display: flex;
+    align-items: center;
+}
 
     </style>
 </head>
