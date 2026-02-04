@@ -1,3107 +1,952 @@
-
-
-      <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE COPS INDIA | Professional Detective & Surveillance Services India</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>THE COPS INDIA | Security Solutions</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
-  /* --- NEW LOGO CSS --- */
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Logo image-um text-um thammilulla gap */
-}
-
-.logo img {
-    height: 100px !important; /* Ivide ningalkku vendra size kodukkaam (eg: 120px, 150px) */
-    width: auto !important;
-    display: block;
-}
-
-.logo-text {
-    font-size: 24px;
-    font-weight: 700;
-    white-space: nowrap; /* Text randu line aavathirikkaan */
-}
-
-/* Mobile size adjust cheyyaan */
-@media (max-width: 768px) {
-    .logo img {
-        height: 60px !important;
-    }
-    .logo-text {
-        font-size: 18px;
-    }
-}
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         :root {
-            --primary-black: #000000;
-            --secondary-black: #121212;
-            --primary-white: #FFFFFF;
-            --secondary-white: #F5F5F5;
-            --accent-gray: #888888;
-            --highlight: #E0E0E0;
+            --primary-blue: #0046ad;
+            --secondary-blue: #002d72;
+            --accent-blue: #00aaff;
+            --white: #ffffff;
+            --light-gray: #f4f7f6;
+            --danger-red: #d90429;
+            --text-dark: #333333;
         }
 
-        body {
-            font-family: 'Raleway', sans-serif;
-            background-color: var(--secondary-white);
-            color: var(--primary-black);
-            overflow-x: hidden;
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background: var(--white); color: var(--text-dark); overflow-x: hidden; }
+
+        /* NAVIGATION */
+        .navbar {
+            position: fixed; top: 0; width: 100%; z-index: 2000;
+            background: var(--white); box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            padding: 10px 0;
+        }
+        .nav-container {
+            width: 90%; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        /* LOGO SECTION */
+        .logo-group { display: flex; align-items: center; gap: 10px; }
+        .logo-group img { height: 50px; width: auto; object-fit: contain; }
 
-        /* Header & Navigation */
-        header {
-            background-color: var(--primary-white);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            animation: slideDown 1s ease-out;
+        .nav-menu ul { display: flex; list-style: none; align-items: center; gap: 20px; }
+        .nav-menu ul li a {
+            text-decoration: none; color: var(--secondary-blue);
+            font-weight: 600; font-size: 0.9rem; transition: 0.3s;
         }
+        .nav-menu ul li a:hover { color: var(--accent-blue); }
 
-        @keyframes slideDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 28px;
-            letter-spacing: 2px;
-            position: relative;
-        }
-
-        .logo span {
-            color: var(--accent-gray);
-        }
-
-        .logo::after {
-            content: '';
-            position: absolute;
-            width: 10px;
-            height: 8px;
-            background-color: var(--primary-black);
-            border-radius: 50%;
-            bottom: 5px;
-            right: -12px;
-            animation: pulse 2s infinite;
+        /* EMERGENCY BTN */
+        .emergency-nav {
+            background: var(--danger-red); color: #fff !important;
+            padding: 8px 15px; border-radius: 5px; animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.5); opacity: 0.7; }
-            100% { transform: scale(1); opacity: 1; }
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
+        /* MOBILE TOGGLER */
+        #nav-check { display: none; }
+        .nav-toggler { display: none; cursor: pointer; color: var(--primary-blue); font-size: 1.5rem; }
 
-        .nav-links li {
-            margin-left: 40px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--primary-black);
-            font-weight: 600;
-            font-size: 16px;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-black);
-            bottom: -5px;
-            left: 0;
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            letter-spacing: 1px;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--primary-black);
-        }
-
-        /* Hero Section */
+        /* HERO SECTION */
         .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(to bottom, var(--primary-white) 0%, var(--secondary-white) 100%);
-            position: relative;
-            overflow: hidden;
+            padding: 150px 8% 80px; min-height: 80vh;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--white); text-align: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
         }
+        .hero h1 { font-size: clamp(2rem, 6vw, 4rem); margin-bottom: 20px; }
+        .hero p { max-width: 700px; font-size: 1.1rem; opacity: 0.9; margin-bottom: 30px; }
 
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
+        .hero-btns { display: flex; gap: 15px; }
+        .btn { padding: 15px 30px; border-radius: 5px; text-decoration: none; font-weight: 700; transition: 0.3s; }
+        .btn-white { background: var(--white); color: var(--primary-blue); }
+        .btn-outline { border: 2px solid var(--white); color: var(--white); }
 
-        .circle {
-            position: absolute;
-            border-radius: 50%;
-            background-color: var(--highlight);
-            animation: float 6s ease-in-out infinite;
-        }
+        /* SECTIONS */
+        section { padding: 80px 8%; }
+        .section-title { text-align: center; color: var(--primary-blue); margin-bottom: 40px; font-size: 2rem; }
 
-        .circle:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            top: 10%;
-            left: 5%;
-            animation-delay: 0s;
-        }
-
-        .circle:nth-child(2) {
-            width: 200px;
-            height: 200px;
-            top: 60%;
-            right: 10%;
-            animation-delay: 2s;
-        }
-
-        .circle:nth-child(3) {
-            width: 150px;
-            height: 150px;
-            bottom: 10%;
-            left: 20%;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 700px;
-            animation: fadeInUp 1.2s ease-out 0.5s both;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .hero h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 64px;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-        }
-
-        .hero p {
-            font-size: 20px;
-            color: var(--accent-gray);
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 250px;
-            background-color: var(--primary-black);
-            color: var(--primary-white);
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 30px;
-            transition: all 0.4s ease;
-            border: 2px solid var(--primary-black);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background-color: var(--primary-white);
-            transition: left 0.4s ease;
-            z-index: -1;
-        }
-
-        .btn:hover::before {
-            left: 0;
-        }
-
-        .btn:hover {
-            color: var(--primary-black);
-            letter-spacing: 1px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Services Section */
-        .services {
-            padding: 120px 0;
-            background-color: var(--primary-white);
-        }
-
-        .section-title {
-            text-align: center;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 60px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 4px;
-            background-color: var(--primary-black);
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: lineExpand 1s ease-out 1s both;
-        }
-
-        @keyframes lineExpand {
-            from { width: 0; }
-            to { width: 80px; }
-        }
-
+        /* SERVICES */
         .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;
         }
-
         .service-card {
-            background-color: var(--secondary-white);
-            border-radius: 10px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: all 0.4s ease;
-            opacity: 0;
-            transform: translateY(30px);
+            background: var(--white); padding: 30px; border-radius: 10px;
+            text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--primary-blue); transition: 0.3s;
         }
+        .service-card:hover { transform: translateY(-10px); }
+        .service-card i { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 15px; }
 
-        .service-card.animated {
-            animation: cardAppear 0.8s ease-out forwards;
+        /* GALLERY */
+        .gallery-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;
         }
+        .gallery-item { height: 200px; border-radius: 8px; overflow: hidden; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
 
-        @keyframes cardAppear {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .service-card:nth-child(2) { animation-delay: 0.2s; }
-        .service-card:nth-child(3) { animation-delay: 0.4s; }
-        .service-card:nth-child(4) { animation-delay: 0.6s; }
-
-        .service-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .service-icon {
-            font-size: 50px;
-            margin-bottom: 25px;
-            color: var(--primary-black);
-            transition: all 0.5s ease;
-        }
-
-        .service-card:hover .service-icon {
-            transform: scale(1.2) rotate(10deg);
-        }
-
-        .service-card h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 24px;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .service-card p {
-            color: var(--accent-gray);
-            line-height: 1.6;
-        }
-
-        /* About Section */
-        .about {
-            padding: 120px 0;
-            background-color: var(--secondary-black);
-            color: var(--primary-white);
-        }
-
-        .about-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-            padding-right: 40px;
-            opacity: 0;
-            transform: translateX(-50px);
-        }
-
-        .about-text.animated {
-            animation: slideInLeft 0.8s ease-out forwards;
-        }
-
-        @keyframes slideInLeft {
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        .about-text h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 42px;
-            margin-bottom: 30px;
-        }
-
-        .about-text p {
-            font-size: 18px;
-            line-height: 1.7;
-            margin-bottom: 25px;
-            color: var(--highlight);
-        }
-
-        .about-visual {
-            flex: 1;
-            min-width: 300px;
-            position: relative;
-            height: 400px;
-            opacity: 0;
-            transform: translateX(50px);
-        }
-
-        .about-visual.animated {
-            animation: slideInRight 0.8s ease-out forwards;
-        }
-
-        @keyframes slideInRight {
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        .visual-element {
-            position: absolute;
-            border: 2px solid var(--primary-white);
-            border-radius: 10px;
-            transition: all 0.5s ease;
-        }
-
-        .visual-element:nth-child(1) {
-            width: 250px;
-            height: 250px;
-            top: 0;
-            left: 0;
-            animation: rotate 20s linear infinite;
-        }
-
-        .visual-element:nth-child(2) {
-            width: 180px;
-            height: 180px;
-            bottom: 0;
-            right: 0;
-            animation: rotateReverse 15s linear infinite;
-        }
-
-        .visual-element:nth-child(3) {
-            width: 120px;
-            height: 120px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: pulseScale 3s ease-in-out infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes rotateReverse {
-            from { transform: rotate(360deg); }
-            to { transform: rotate(0deg); }
-        }
-
-        @keyframes pulseScale {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.1); }
-        }
-
-        /* Stats Section */
-        .stats {
-            padding: 100px 0;
-            background-color: var(--primary-white);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            text-align: center;
-        }
-
-        .stat-item {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .stat-item.animated {
-            animation: statCount 1.5s ease-out forwards;
-        }
-
-        @keyframes statCount {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .stat-number {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 60px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--primary-black);
-        }
-
-        .stat-label {
-            font-size: 18px;
-            color: var(--accent-gray);
-            font-weight: 600;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--primary-black);
-            color: var(--primary-white);
-            padding: 80px 0 30px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-bottom: 50px;
-        }
-
-        .footer-logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 32px;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-        }
-
-        .footer-logo span {
-            color: var(--accent-gray);
-        }
-
-        .footer-about {
-            flex: 1;
-            min-width: 300px;
-            margin-right: 40px;
-        }
-
-        .footer-about p {
-            color: var(--highlight);
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-
-        .social-links {
-            display: flex;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--secondary-black);
-            color: var(--primary-white);
-            margin-right: 15px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background-color: var(--primary-white);
-            color: var(--primary-black);
-            transform: translateY(-5px);
-        }
-
-        .footer-links {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .footer-links h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 22px;
-            margin-bottom: 25px;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 15px;
-        }
-
-        .footer-links a {
-            color: var(--highlight);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-            padding-left: 0;
-        }
-
-        .footer-links a::before {
-            content: '→';
-            position: absolute;
-            left: -20px;
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary-white);
-            padding-left: 20px;
-        }
-
-        .footer-links a:hover::before {
-            opacity: 1;
-            left: 0;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--accent-gray);
-            font-size: 14px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 50px;
+        /* RESPONSIVE */
+        @media (max-width: 991px) {
+            .nav-toggler { display: block; }
+            .nav-menu {
+                position: fixed; top: 70px; left: -100%; width: 100%;
+                background: var(--white); height: 100vh; transition: 0.4s; padding: 50px;
             }
-
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .mobile-menu {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: var(--primary-white);
-                padding: 20px;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-                transform: translateY(-100%);
-                opacity: 0;
-                transition: all 0.5s ease;
-            }
-
-            .mobile-menu.active {
-                transform: translateY(0);
-                opacity: 1;
-            }
-
-            .mobile-menu ul {
-                list-style: none;
-            }
-
-            .mobile-menu li {
-                margin-bottom: 20px;
-            }
-
-            .mobile-menu a {
-                text-decoration: none;
-                color: var(--primary-black);
-                font-weight: 600;
-                font-size: 18px;
-                display: block;
-                padding: 10px 0;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            }
+            .nav-menu ul { flex-direction: column; gap: 30px; }
+            #nav-check:checked ~ .nav-menu { left: 0; }
+            .logo-group img { height: 40px; }
         }
 
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 40px;
-            }
-
-            .hero p {
-                font-size: 18px;
-            }
-
-            .section-title {
-                font-size: 36px;
-            }
-
-            .about-content {
-                flex-direction: column;
-            }
-
-            .about-text {
-                padding-right: 0;
-                margin-bottom: 60px;
-            }
-        }
-
-/* Laptop / Desktop */
-.client-logo-row img {
-    max-width: 80px;
-    opacity: 1;       /* full visible */
-    filter: none;     /* grayscale removed */
-    transition: all 0.3s ease;
-}
-
-/* Hover (desktop only feel) */
-.client-logo-row img:hover {
-    transform: scale(1.08);  /* just zoom effect, no color change */
-}
-
-/* Tablet */
-@media (max-width: 992px) {
-    .client-logo-row img {
-        max-width: 70px;
-    }
-}
-
-/* Mobile spacing fix */
-@media (max-width: 600px) {
-    .client-logo-row {
-        gap: 22px;
-    }
-}
-
-
-
-/* Header & Logo */
-header {
-    background-color: #fff;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-}
-
-nav {
+/* --- MOBILE-FIRST MODERN HERO --- */
+.hero {
+    min-height: 100vh;
+    padding: 120px 5% 60px; /* Mobile-nu pattiya padding */
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
-    flex-wrap: wrap;
+    justify-content: center;
+    background: linear-gradient(rgba(0, 45, 114, 0.85), rgba(0, 20, 50, 0.9)),
+                url('https://images.unsplash.com/photo-1557597774-9d2739f85a76?auto=format&fit=crop&w=1000');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: var(--white);
 }
 
-.logo {
+.hero-content {
+    width: 100%;
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: clamp(2.2rem, 8vw, 4.5rem); /* Mobile-il font automatic aayi churuungum */
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.hero h1 span {
+    color: #00aaff; /* Logo-ile blue-nu pattiya shade */
+}
+
+.hero p {
+    font-size: clamp(0.95rem, 4vw, 1.2rem);
+    opacity: 0.9;
+    margin-bottom: 35px;
+    line-height: 1.6;
+    font-weight: 300;
+    padding: 0 10px;
+}
+
+/* Mobile Friendly Buttons */
+.hero-btns {
+    display: flex;
+    flex-direction: column; /* Mobile-il button onnu thazhe onnu varaan */
+    gap: 15px;
+    align-items: center;
+}
+
+.btn-main {
+    width: 100%; /* Mobile-il full width */
+    max-width: 280px;
+    background: #0046ad;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    border: 2px solid #0046ad;
+}
+
+.btn-outline-white {
+    width: 100%;
+    max-width: 280px;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+/* Desktop-il Buttons side-by-side varaan */
+@media (min-width: 768px) {
+    .hero-btns {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .btn-main, .btn-outline-white {
+        width: auto;
+    }
+}
+        /* Smooth Scroll enable cheyyan (vithout JS) */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Button click cheyyumbol thonnunna effect */
+.btn-main:active, .btn-outline-white:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+}
+
+/* Floating WhatsApp Button Styling */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.whatsapp-float:hover {
+    background-color: #128c7e;
+    transform: scale(1.1);
+}
+
+/* Mobile-il buttons nallonnam valuthayi kaanan */
+@media (max-width: 768px) {
+    .hero-btns {
+        width: 100%;
+        padding: 0 20px;
+    }
+    .btn-main, .btn-outline-white {
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+    }
+}
+        @media (max-width: 991px) {
+    /* Navbar height adjust for mobile */
+    .navbar { padding: 15px 0; }
+
+    .nav-toggler {
+        display: block;
+        font-size: 1.8rem;
+        z-index: 10001; /* Menu-vinu mukalil nilkkan */
+        transition: 0.3s;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hidden by default */
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 45, 114, 0.95); /* Deep Blue Overlay */
+        backdrop-filter: blur(15px); /* Premium Blur Effect */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        z-index: 10000;
+    }
+
+    /* Menu Open State */
+    #nav-check:checked ~ .nav-menu {
+        right: 0;
+    }
+
+    /* Hamburger to X Animation */
+    #nav-check:checked ~ .nav-toggler {
+        color: white;
+        transform: rotate(90deg);
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .nav-menu ul li a {
+        font-size: 1.8rem;
+        color: white !important;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    /* Emergency Button in Mobile Menu */
+    .emergency-nav {
+        font-size: 1.2rem !important;
+        padding: 15px 40px !important;
+        width: auto;
+        display: inline-block;
+    }
+}
+        /* --- PREMIUM ABOUT SECTION --- */
+.about-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px;
+    align-items: center;
+}
+
+.about-image {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 20px 20px 0px var(--primary-blue); /* Stylish back frame */
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: 0.5s;
+}
+
+.about-image:hover img {
+    transform: scale(1.05);
+}
+
+.about-text h4 {
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    color: var(--secondary-blue);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.about-features {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.feature-box {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.logo img {
-    height: 50px;
-    width: auto;
+.feature-box i {
+    color: var(--primary-blue);
+    font-size: 1.2rem;
 }
 
-.logo-text {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: #000;
-    white-space: nowrap;
-}
-
-/* Desktop Menu */
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 40px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #000;
+.feature-box span {
     font-weight: 600;
-    transition: all 0.3s;
+    font-size: 0.9rem;
 }
 
-/* Mobile Menu Button */
-.mobile-menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 28px;
-    cursor: pointer;
-    color: #000;
-}
-
-/* Mobile Menu */
-.mobile-menu {
-    display: none;
-    position: fixed;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    transform: translateY(-100%);
-    opacity: 0;
-    transition: all 0.5s ease;
-    z-index: 1000;
-}
-
-.mobile-menu.active {
-    display: block;
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.mobile-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.mobile-menu li {
-    margin-bottom: 15px;
-}
-
-.mobile-menu a {
-    text-decoration: none;
-    color: #000;
-    font-weight: 600;
-    font-size: 18px;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 992px) {
-    .nav-links {
-        display: none;
-    }
-    .mobile-menu-btn {
-        display: block;
-    }
-}
-
+/* Mobile Friendly Adjustments */
 @media (max-width: 768px) {
-    .logo img { height: 40px; }
-    .logo-text { font-size: 18px; }
+    .about-text h2 { font-size: 2rem; }
+    .about-image { margin-bottom: 30px; box-shadow: 10px 10px 0px var(--primary-blue); }
+}
+        /* --- PREMIUM SERVICES GRID --- */
+.services-section {
+    background: var(--light-gray);
+    padding: 80px 8%;
 }
 
-@media (max-width: 480px) {
-    nav { padding: 10px 15px; }
-    .logo img { height: 35px; }
-    .logo-text { font-size: 16px; }
-    .mobile-menu-btn { font-size: 26px; }
-    .mobile-menu li a { font-size: 16px; }
-}
-/* ===== MOBILE HAMBURGER RIGHT TOP-START ALIGN FIX ===== */
-@media (max-width: 992px) {
-    .mobile-menu-btn {
-        position: absolute; /* fixed inside nav */
-        top: 10px;          /* distance from top */
-        right: 10px;        /* distance from right */
-        display: block;
-        z-index: 1005;      /* always on top */
-    }
-
-    nav {
-        position: relative; /* parent of button */
-    }
-
-    .logo {
-        width: auto;        /* avoid stretching */
-        justify-content: flex-start;
-    }
-}
-     .services-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Desktop */
-    gap: 20px;
-}
-
-.service-card {
-    background: #fff;
-    padding: 20px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-/* Mobile view */
-@media (max-width: 768px) {
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns × 5 rows */
-    }
-}
-/* --- Services Section --- */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
-}
-
-.service-card {
-    background: #fff;
-    padding: 25px 20px;
-    text-align: center;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 280px;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
-
-.service-icon {
-    font-size: 40px;
-    color: #007BFF;
-    margin-bottom: 15px;
-}
-
-.service-card h3 {
-    font-size: 20px;
-    margin-bottom: 12px;
-    color: #333;
-}
-
-.service-card p {
-    font-size: 14px;
-    color: #555;
-}
-
-.achievements {
-    padding: 60px 0;
-    background: #f8f9fa;
-    text-align: center;
-}
-
-.section-title {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 40px;
-    color: #333;
-}
-
-/* Grid */
-.achievements-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    justify-items: center;
-}
-
-/* Achievement Card */
-.achievement-card {
-    background: linear-gradient(135deg, var(--bg), #fff);
-    color: #fff;
-    font-weight: bold;
-    padding: 20px 15px;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    text-align: center;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: floatIn 0.8s forwards;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Icon */
-.achievement-card i {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-/* Floating / pop-up animation */
-@keyframes floatIn {
-    0% { opacity: 0; transform: translateY(20px);}
-    60% { opacity: 1; transform: translateY(-5px);}
-    100% { opacity: 1; transform: translateY(0);}
-}
-
-/* Sequential animation delay */
-.achievement-card:nth-child(1) { animation-delay: 0.1s; }
-.achievement-card:nth-child(2) { animation-delay: 0.2s; }
-.achievement-card:nth-child(3) { animation-delay: 0.3s; }
-.achievement-card:nth-child(4) { animation-delay: 0.4s; }
-.achievement-card:nth-child(5) { animation-delay: 0.5s; }
-.achievement-card:nth-child(6) { animation-delay: 0.6s; }
-.achievement-card:nth-child(7) { animation-delay: 0.7s; }
-.achievement-card:nth-child(8) { animation-delay: 0.8s; }
-
-/* Hover lift + subtle bounce effect */
-.achievement-card:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.3);
-}
-
-/* Mobile Responsive */
-@media (max-width: 1024px) {
-    .achievements-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .achievements-grid {
-        grid-template-columns: 1fr;
-    }
-}
-        body {
-    font-family: 'Arial', sans-serif;
-    background: #f5f5f5;
-    margin: 0;
-    padding: 0;
-}
-/* Gallery Section */
-.gallery {
-  padding: 50px 0;
-  background: #f8f9fa;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 30px;
-  font-weight: 700;
-  margin-bottom: 35px;
-  color: #222;
-}
-
-/* MOBILE FIRST GRID */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Mobile: 2 images */
-  gap: 12px;
-}
-
-/* Gallery Item */
-.gallery-item {
-  overflow: hidden;
-  border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Image */
-.gallery-item img {
-  width: 100%;
-  height: 160px; /* uniform look on mobile */
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
-}
-
-/* Touch / Hover Effect */
-.gallery-item:hover img,
-.gallery-item:active img {
-  transform: scale(1.07);
-}
-
-.gallery-item:hover {
-  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-}
-
-/* TABLET */
-@media (min-width: 768px) {
-  .gallery-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-  }
-
-  .gallery-item img {
-    height: 200px;
-  }
-}
-
-/* DESKTOP */
-@media (min-width: 1024px) {
-  .gallery-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-  }
-
-  .gallery-item img {
-    height: 240px;
-  }
-}
-        /* ============ HOME CLIENT LOGOS ============ */
-.home-clients {
-  background: #fff;
-  padding: 35px 0;
-}
-
-.client-logo-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.client-logo-row img {
-  max-height: 55px;
-  opacity: 0.9;
-  transition: transform 0.3s ease;
-}
-
-.client-logo-row img:hover {
-  transform: scale(1.07);
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .client-logo-row img {
-    max-height: 38px;
-  }
-}
-.hero {
-  min-height: 100vh;
-  padding-top: 80px;   /* fixed navbar space */
-  display: flex;
-  align-items: center;      /* vertical center */
-  justify-content: center;  /* horizontal center */
-  text-align: center;
-}
-
-.hero-content {
-  max-width: 850px;
-  margin: auto;
-}
-
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-}
-/* ======================
-   FOOTER STYLING
-====================== */
-footer {
-    background-color: #050505;  /* Dark background */
-    color: #cfcfcf;             /* Light text */
-    padding: 60px 20px 30px;
-    font-family: 'Poppins', sans-serif;
-}
-
-footer .container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Footer Content Grid */
-.footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    justify-content: space-between;
-}
-
-/* About Section */
-.footer-about {
-    flex: 1 1 300px;
-}
-
-.footer-logo {
-    font-size: 28px;
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 15px;
-}
-
-.footer-logo span {
-    color: #caa74d;  /* Brand gold color */
-}
-
-.footer-about p {
-    font-size: 15px;
-    line-height: 1.8;
-    margin-bottom: 20px;
-    color: #bdbdbd;
-}
-
-/* Social Links */
-.social-links {
-    display: flex;
-    gap: 15px;
-}
-
-.social-links a {
-    width: 40px;
-    height: 40px;
-    background-color: #111;
-    color: #caa74d;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-    font-size: 16px;
-}
-
-.social-links a:hover {
-    background-color: #caa74d;
-    color: #000;
-    transform: translateY(-4px);
-}
-
-/* Footer Links Sections */
-.footer-links {
-    flex: 1 1 200px;
-}
-
-.footer-links h3 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    color: #fff;
-}
-
-.footer-links ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links li {
-    margin-bottom: 12px;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-.footer-links a {
-    color: #cfcfcf;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: #caa74d;
-}
-
-/* Copyright */
-footer .copyright {
-    border-top: 1px solid #1a1a1a;
-    padding-top: 20px;
-    text-align: center;
-    font-size: 13px;
-    color: #888;
-    margin-top: 30px;
-}
-
-.footer-map {
     margin-top: 40px;
 }
 
-.footer-map h3 {
-    color: #fff;
-    margin-bottom: 15px;
-    font-size: 18px;
-}
-
-.contact-float {
-    position: fixed;
-    right: 20px;
-    bottom: 80px;
+.service-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.4s ease;
+    border-top: 5px solid transparent;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    z-index: 9999;
-}
-
-.float-btn {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 22px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-    transition: transform 0.3s ease;
-}
-
-.float-btn:hover {
-    transform: scale(1.1);
-}
-
-/* Colors */
-.whatsapp { background: #25D366; }
-.call { background: #007bff; }
-.email { background: #ff4d4d; }
-
-/* Mobile Menu */
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 250px;
-  background-color: #fff;
-  padding: 60px 20px;
-  transform: translateX(-100%) scale(0.95);
-  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.4s ease;
-  opacity: 0;
-  box-shadow: 2px 0 15px rgba(0,0,0,0.2);
-  z-index: 1010;
-}
-
-.mobile-menu.active {
-  transform: translateX(0) scale(1);
-  opacity: 1;
-}
-
-/* Close Button */
-.mobile-close-btn {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 1015;
-}
-
-/* Overlay */
-.mobile-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.3);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 1000;
-  pointer-events: none; /* click block only when active */
-}
-
-.mobile-overlay.active {
-  opacity: 1;
-  pointer-events: all;
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-  .nav-links { display: none; }
-  .mobile-menu-btn { display: block; }
-}
-/* =====================================
-   MOBILE FRIENDLY FIX ONLY
-===================================== */
-
-/* Prevent horizontal scroll */
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-/* Images responsive */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Fixed header spacing */
-header {
-  height: 70px;
-}
-
-.hero {
-  padding-top: 70px;
-  min-height: calc(100vh - 70px);
-}
-
-/* Navigation */
-@media (max-width: 992px) {
-  .nav-links {
-    display: none;
-  }
-
-  .mobile-menu-btn {
-    display: block;
-  }
-}
-
-/* Hero text scaling */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 32px;
-    line-height: 1.2;
-  }
-
-  .hero p {
-    font-size: 16px;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    gap: 12px;
-  }
-}
-
-/* Services grid mobile fix */
-@media (max-width: 768px) {
-  .services-grid {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-/* Achievements grid mobile fix */
-@media (max-width: 768px) {
-  .achievements-grid {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-/* Stats grid mobile fix */
-@media (max-width: 768px) {
-  .stats-grid {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-/* Gallery mobile layout */
-@media (max-width: 600px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-}
-
-/* Mobile menu full height & scroll */
-.mobile-menu {
-  height: 100vh;
-  overflow-y: auto;
-}
-
-/* Disable heavy effects on mobile */
-@media (max-width: 768px) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-/* ===== FIX: SECTION CONTENT NOT SHOWING ===== */
-section {
-  opacity: 1 !important;
-  transform: none !important;
-  visibility: visible !important;
-}
-
-section * {
-  opacity: 1 !important;
-  transform: none !important;
-  visibility: visible !important;
-}
-
-/* ===== EMERGENCY SECTION FIX ===== */
-
-/* Force all sections to show */
-section,
-section * {
-  display: block !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  height: auto !important;
-  max-height: none !important;
-  transform: none !important;
-  overflow: visible !important;
-}
-
-/* Fix grid layouts */
-.services-grid,
-.achievements-grid,
-.stats-grid,
-.gallery-grid {
-  display: grid !important;
-}
-
-/* Fix cards */
-.service-card,
-.achievement-card,
-.stat-card,
-.gallery-item {
-  display: block !important;
-}
-
-/* Disable any hide-on-load animation */
-[class*="hidden"],
-[class*="hide"],
-[class*="fade"] {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-/* ===== HOME PAGE TEXT ALIGN FIX ===== */
-
-/* Hero section restore */
-.hero {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
-  padding-top: 70px !important;
-  min-height: calc(100vh - 70px) !important;
-}
-
-/* Hero content spacing */
-.hero-content {
-  margin-top: 0 !important;
-  padding: 20px !important;
-}
-
-/* Fix heading spacing */
-.hero h1 {
-  margin-top: 0 !important;
-  margin-bottom: 16px !important;
-  line-height: 1.2 !important;
-}
-
-/* Fix paragraph spacing */
-.hero p {
-  margin-top: 0 !important;
-  margin-bottom: 24px !important;
-}
-
-/* Buttons spacing */
-.hero-buttons {
-  margin-top: 10px !important;
-}
-
-/* Mobile specific tuning */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 32px !important;
-  }
-
-  .hero p {
-    font-size: 16px !important;
-  }
-}
-/* ===== HERO FULL SPACE UTILIZATION FIX ===== */
-
-/* Hero section full height use cheyyan */
-.hero {
-  min-height: calc(100vh - 70px) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding-top: 70px !important;
-}
-
-/* Hero content slightly DOWN cheyyan */
-.hero-content {
-  margin-top: 60px !important;   /* 👈 ith aanu main change */
-  padding: 20px !important;
-}
-
-/* Heading spacing */
-.hero h1 {
-  margin-bottom: 20px !important;
-  line-height: 1.25 !important;
-}
-
-/* Paragraph spacing */
-.hero p {
-  margin-bottom: 28px !important;
-}
-
-/* Buttons spacing */
-.hero-buttons {
-  margin-top: 10px !important;
-}
-
-/* Mobile tuning */
-@media (max-width: 768px) {
-  .hero-content {
-    margin-top: 80px !important; /* mobile-il kurachude thazhe */
-  }
-
-  .hero h1 {
-    font-size: 32px !important;
-  }
-
-  .hero p {
-    font-size: 16px !important;
-  }
-}
-/* ===== HERO TEXT MORE DOWN + BUTTON GAP FIX ===== */
-
-/* Hero full cover + center */
-.hero {
-  min-height: calc(100vh - 70px) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding-top: 70px !important;
-}
-
-/* Hero content more down */
-.hero-content {
-  margin-top: 120px !important;   /* 👈 kurachude thazhe */
-  padding: 20px !important;
-}
-
-/* Heading spacing */
-.hero h1 {
-  margin-bottom: 24px !important;
-  line-height: 1.25 !important;
-}
-
-/* Paragraph spacing */
-.hero p {
-  margin-bottom: 34px !important;
-}
-
-/* Buttons spacing (Our Services / Contact Us) */
-.hero-buttons {
-  margin-top: 20px !important;
-  gap: 20px !important;           /* 👈 button gap */
-}
-
-/* Button size for touch */
-.hero-buttons .btn {
-  padding: 16px 38px !important;
-}
-
-/* Mobile extra tuning */
-@media (max-width: 768px) {
-  .hero-content {
-    margin-top: 150px !important; /* mobile-il innum thazhe */
-  }
-
-  .hero-buttons {
-    gap: 16px !important;
-  }
-}
-/* ===============================
-   HERO BUTTON FINAL FIX (ONE BLOCK)
-================================ */
-
-/* Button container spacing */
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  margin-top: 25px;
-}
-
-/* Button base style */
-.hero-buttons .btn {
-  background-color: #007bff;   /* Blue */
-  border: 2px solid #007bff;
-  color: #ffffff;
-  padding: 16px 38px;
-  border-radius: 30px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-/* Remove white hover / click effect */
-.hero-buttons .btn::before {
-  display: none !important;
-}
-
-/* Hover*
-/* ===============================
-   HERO BUTTON WITH ANIMATION
-================================ */
-
-/* Button container */
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  margin-top: 25px;
-}
-
-/* Button base */
-.hero-buttons .btn {
-  background-color: #007bff;
-  border: 2px solid #007bff;
-  color: #ffffff;
-  padding: 16px 38px;
-  border-radius: 30px;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-
-  /* Animation */
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    background-color 0.3s ease,
-    border-color 0.3s ease;
-}
-
-/* Remove white effect */
-.hero-buttons .btn::before {
-  display: none !important;
-}
-
-/* Hover animation */
-.hero-buttons .btn:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
-  transform: translateY(-4px) scale(1.03);   /* lift */
-  box-shadow: 0 10px 25px rgba(0, 123, 255, 0.35);
-}
-
-/* Click animation */
-.hero-buttons .btn:active {
-  transform: tr
-/* ===============================
-   HERO BUTTON BIG + EXTRA GAP
-================================ */
-
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 40px;              /* 👈 കൂടുതൽ space */
-  margin-top: 35px;
-}
-
-/* Bigger buttons */
-.hero-buttons .btn {
-  background-color: #007bff;
-  border: 2px solid #007bff;
-  color: #ffffff;
-
-  padding: 20px 52px;     /* 👈 size increased */
-  font-size: 17px;
-  border-radius: 35px;
-  font-weight: 600;
-
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    background-color 0.3s ease,
-    border-color 0.3s ease;
-}
-
-/* Remove white hover */
-.hero-buttons .btn::before {
-  display: none !important;
-}
-
-/* Hover */
-.hero-buttons .btn:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 14px 30px rgba(0, 123, 255, 0.4);
-}
-
-/* Click */
-.hero-buttons .btn:active {
-  transform: translateY(0) scale(0.96);
-  box-shadow: 0 6px 14px rgba(0, 123, 255, 0.3);
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .hero-buttons {
-    flex-direction: column;
-    gap: 22px;
-  }
-
-  .hero-buttons .btn {
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
-    padding: 18px 0;
-  }
-}
-/* ===============================
-   HERO BUTTON ADIPOLI ANIMATION
-================================ */
-
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 40px;
-}
-
-/* Base button */
-.hero-buttons .btn {
-  background-color: #007bff;
-  border: 2px solid #007bff;
-  color: #ffffff;
-
-  padding: 20px 52px;
-  font-size: 17px;
-  font-weight: 600;
-  border-radius: 40px;
-  text-decoration: none;
-
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-
-  /* Animation start state */
-  opacity: 0;
-  transform: translateY(40px) scale(0.95);
-
-  animation: heroBtnEnter 0.9s ease forwards;
-}
-
-/* OUR SERVICES – fast entry */
-.hero-buttons .btn:first-child {
-  animation-delay: 0.3s;
-}
-
-/* CONTACT US – ചെറിയ delay (thayak) */
-.hero-buttons .btn:last-child {
-  animation-delay: 0.65s;
-}
-
-/* Entry animation */
-@keyframes heroBtnE
-/* ==================================
-   HERO GLOW BUTTON + TEXT ANIMATION
-================================== */
-
-/* BUTTON CONTAINER */
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 40px;
-}
-
-/* BUTTON BASE */
-.hero-buttons .btn {
-  background: #007bff;
-  border: 2px solid #007bff;
-  color: #fff;
-  padding: 20px 52px;
-  font-size: 17px;
-  font-weight: 600;
-  border-radius: 40px;
-  text-decoration: none;
-  cursor: pointer;
-
-  position: relative;
-  overflow: hidden;
-
-  /* Entry animation */
-  opacity: 0;
-  transform: translateY(40px);
-  animation: btnEnter 0.9s ease forwards;
-
-  /* Glow animation */
-  box-shadow: 0 0 0 rgba(0,123,255,0.7);
-}
-
-/* OUR SERVICES – fast */
-.hero-buttons .btn:first-child {
-  animation-delay: 0.3s;
-}
-
-/* CONTACT US – delay + extra glow */
-.hero-buttons .btn:last-child {
-  animation-delay: 0.7s;
-  animation-name: btnEnter, btnGlow;
-  animation-duration: 0.9s, 1.6s;
-  animation-delay: 0.7s, 1.8s;
-/* Footer Styles */
-footer {
-    background-color: #111; /* Dark background */
-    color: #fff;
-    padding: 50px 20px 20px;
-    font-family: 'Arial', sans-serif;
-}
-
-footer a {
-    color: #1e90ff; /* Links blue */
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-footer a:hover {
-    color: #fff;
-}
-
-/* Footer Container */
-footer .container {
-    max-width: 1200px;
-    margin: auto;
-}
-
-/* Footer Content Flex */
-footer .footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
     justify-content: space-between;
 }
 
-/* About Section */
-footer .footer-about {
-    flex: 1 1 250px;
+.service-card:hover {
+    transform: translateY(-10px);
+    border-top: 5px solid var(--primary-blue);
+    box-shadow: 0 15px 40px rgba(0, 45, 114, 0.15);
 }
 
-footer .footer-logo {
-    font-size: 28px;
-    font-weight: bold;
+.service-card i {
+    font-size: 3rem;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
 }
 
-footer .footer-logo span {
-    color: #1e90ff;
-}
-
-footer .social-links a {
-    margin-right: 10px;
-    font-size: 18px;
-}
-
-/* Footer Links */
-footer .footer-links {
-    flex: 1 1 200px;
-}
-
-footer .footer-links h3 {
+.service-card h3 {
+    font-size: 1.3rem;
+    color: var(--secondary-blue);
     margin-bottom: 15px;
+    font-weight: 700;
 }
 
-footer .footer-links ul {
-
-/* ===== FORCE FIX : MOBILE HOME EXTRA SPACE ===== */
-@media (max-width: 768px) {
-
-  .hero {
-    min-height: auto !important;     /* override 100vh */
-    padding-top: 60px !important;    /* only header space */
-    padding-bottom: 30px !important;
-  }
-
-  .hero-content {
-    margin-top: 0 !important;        /* override old margins */
-    padding: 16px !important;
-  }
-
-  .hero h1 {
-    margin-top: 0 !important;
-  }
-}
-/* ===== FINAL FORCE FIX : MOBILE HERO SPACE ===== */
-@media (max-width: 768px) {
-
-  html, body {
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow-x: hidden;
-  }
-
-  header {
-    position: fixed;
-    top: 0;
-    height: 60px;
-  }
-
-  .hero {
-    min-height: unset !important;
-    height: auto !important;
-    padding-top: 60px !important;
-    padding-bottom: 20px !important;
-    margin-top: 0 !important;
-  }
-
-  .hero-content {
-    margin: 0 !important;
-    padding: 12px !important;
-  }
-
-  .hero * {
-    margin-top: 0 !important;
-  }
+.service-card p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
 }
 
-/* ===== MOBILE HERO AUTO HEIGHT FIX ===== */
+/* Mobile adjustments */
 @media (max-width: 768px) {
-
-  .hero {
-    min-height: unset !important;
-    height: auto !important;
-    padding-top: 60px !important;   /* header height */
-    padding-bottom: 12px !important;
-    display: block !important;
-  }
-
-  .hero-content {
-    margin: 0 !important;
-    padding: 12px !important;
-  }
-
-  /* Buttons – no extra gap */
-  .hero-buttons {
-    margin-top: 12px !important;
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-  }
-
-  /* Remove hidden button spacing */
-  .hero-buttons a,
-  .hero-buttons button {
-    margin-bottom: 0 !important;
-  }
+    .services-grid {
+        grid-template-columns: 1fr; /* Mobile-il 1 column mathram */
+    }
 }
-/* ===== BEST & FINAL MOBILE HERO FIX ===== */
-@media (max-width: 768px) {
-
-  .hero {
-    min-height: auto !important;
-    height: auto !important;
-    display: block !important;
-    padding-top: 60px !important;
-    padding-bottom: 16px !important;
-  }
-
-  .hero-content {
-    margin: 0 !important;
-    padding: 12px !important;
-  }
+        /* --- ROYAL CLEAN GALLERY --- */
+.gallery-section {
+    padding: 80px 5%;
+    background: #f4f7f9; /* Light professional gray */
+    text-align: center;
 }
 
-/* ===== EXACT FIX : HERO OVERLAY + MOBILE SPACE ===== */
-@media (max-width: 768px) {
-
-  .hero {
+.gallery-section .section-title {
+    font-size: 2.5rem;
+    color: #002d72; /* Ninte primary blue */
+    font-weight: 800;
+    margin-bottom: 50px;
+    text-transform: uppercase;
     position: relative;
-    min-height: auto !important;
-    height: auto !important;
-    display: block !important;
-    padding-top: 60px !important;   /* header height */
-    padding-bottom: 12px !important;
-  }
-
-  /* Overlay was causing extra height */
-  .hero-overlay {
-    position: absolute !important;
-    inset: 0 !important;            /* top:0 right:0 bottom:0 left:0 */
-    height: 100% !important;
-    width: 100% !important;
-  }
-
-  .hero-content {
-    position: relative;
-    margin: 0 !important;
-    padding: 12px !important;
-  }
-
-  .hero-buttons {
-    margin-bottom: 0 !important;
-  }
 }
-/* ===== ABSOLUTE FINAL FIX : HERO OVERLAY ===== */
+
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.gallery-item {
+    background: #fff;
+    padding: 12px 12px 40px 12px; /* Bottom-il kooduthal space for Polaroid look */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    transition: all 0.4s ease;
+    width: 300px;
+}
+
+/* Chila images cheriya reethiyil rotate cheyyan (Natural look) */
+.gallery-item:nth-child(odd) { transform: rotate(-2deg); }
+.gallery-item:nth-child(even) { transform: rotate(2deg); }
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border: 1px solid #eee;
+}
+
+/* Hover Effect */
+.gallery-item:hover {
+    transform: rotate(0deg) translateY(-15px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 45, 114, 0.2);
+    z-index: 10;
+}
+
+/* Mobile Friendly */
 @media (max-width: 768px) {
-
-  .hero {
-    position: relative !important;
-    display: block !important;
-    min-height: unset !important;
-    height: auto !important;
-    padding-top: 60px !important;
-    padding-bottom: 0 !important;
-  }
-
-  /* REMOVE overlay from layout flow */
-  .hero-overlay {
-    position: absolute !important;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: auto !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    pointer-events: none;
-  }
-
-  .hero-content {
-    position: relative !important;
-    margin: 0 !important;
-    padding: 12px !important;
-  }
+    .gallery-item {
+        width: 100%; /* Mobile-il full width */
+        max-width: 350px;
+        transform: rotate(0deg) !important;
+    }
 }
-/* ===== SCREENSHOT CONFIRMED FIX : MOBILE HERO ===== */
+/* --- CLEAN CONTACT DETAILS SECTION (NO MAP) --- */
+.contact-section {
+    padding: 100px 8%;
+    background: #f8fafc;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    color: #002d72;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.contact-grid-full {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.contact-detail-card {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 45, 114, 0.05);
+    transition: 0.4s;
+    border-bottom: 5px solid #00aaff;
+}
+
+.contact-detail-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 45, 114, 0.1);
+}
+
+.contact-detail-card i {
+    font-size: 2.5rem;
+    color: #002d72;
+    margin-bottom: 20px;
+}
+
+.contact-detail-card h3 {
+    font-size: 1.3rem;
+    color: #002d72;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.contact-detail-card p {
+    color: #475569;
+    line-height: 1.6;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Specific styling for Pan India section */
+.pan-india-box {
+    grid-column: 1 / -1; /* Full width row */
+    background: linear-gradient(135deg, #002d72 0%, #0046ad 100%);
+    color: white;
+    padding: 40px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.pan-india-box h3 { color: #00aaff; }
+.pan-india-box p { color: #e2e8f0; }
+
 @media (max-width: 768px) {
-
-  .hero {
-    min-height: auto !important;   /* 🔥 THIS is the key */
-    height: auto !important;
-    display: block !important;     /* kill flex centering */
-    padding-top: 70px !important;  /* header space */
-    padding-bottom: 0 !important;
-    margin-bottom: 0 !important;
-  }
-
-  .hero-content {
-    margin: 0 !important;
-    padding: 12px 16px !important;
-  }
-
-  .hero-buttons {
-    margin-bottom: 0 !important;
-  }
-}
-        .section-title {
-    text-align: center;        /* center the text */
-    font-family: 'Montserrat', sans-serif; /* nice professional font */
-    font-size: 36px;           /* size of heading */
-    font-weight: 700;          /* bold */
-    color: #007bff;            /* blue color, change as needed */
-    margin-bottom: 40px;       /* space below heading */
-    text-transform: capitalize; /* first letters capital */
-    letter-spacing: 1px;       /* spacing between letters */
-}
-/* ===== HOME PAGE SPACE FIX (ADD ONLY) ===== */
-
-/* Header height fix */
-header {
-  height: 70px;
+    .contact-section { padding: 60px 5%; }
 }
 
-/* Hero extra space remove */
-.hero {
-  height: auto !important;
-  min-height: calc(100vh - 70px) !important;
-  padding-top: 70px !important;
-  padding-bottom: 30px !important;
-}
-
-/* Hero content margin override */
-.hero-content {
-  margin-top: 0 !important;
-}
-
-/* Mobile fix */
-@media (max-width: 768px) {
-  header {
-    height: 60px;
-  }
-
-  .hero {
-    min-height: auto !important;
-    padding-top: 60px !important;
-    padding-bottom: 20px !important;
-  }
-
-  .hero-content {
-    margin-top: 0 !important;
-  }
-}
-
-/* ===== HOME PAGE COMPACT FIX (ADD ONLY) ===== */
-
-/* Hero section height kurakkan */
-.hero {
-  min-height: auto !important;     /* 100vh oyivakkum */
-  height: auto !important;
-  padding-top: 70px !important;    /* header space mathram */
-  padding-bottom: 20px !important; /* bottom space kurachu */
-}
-
-/* Hero content compact */
-.hero-content {
-  margin-top: 0 !important;
-  padding: 10px 20px !important;
-}
-
-/* Text spacing reduce */
-.hero h1 {
-  margin-bottom: 12px !important;
-}
-
-.hero p {
-  margin-bottom: 16px !important;
-}
-
-/* Buttons close together */
-.hero-buttons {
-  margin-top: 10px !important;
-  gap: 14px !important;
-}
-
-/* ===== MOBILE EXTRA COMPACT ===== */
-@media (max-width: 768px) {
-  .hero {
-    padding-top: 60px !important;
-    padding-bottom: 10px !important;
-  }
-
-  .hero-content {
-    padding: 8px 14px !important;
-  }
-
-  .hero-buttons {
-    margin-top: 8px !important;
-  }
-}
-/* REMOVE EXTRA WHITE SPACE */
-html, body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
-/* FIX EMPTY SPACE BETWEEN SECTIONS */
-section, div {
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-/* HERO / MAIN SECTION FIX */
-.hero, .main, .container {
-  min-height: auto !important;
-  height: auto !important;
-}
-
-/* REMOVE UNWANTED GAP BEFORE FOOTER */
+/* --- PREMIUM GLOWING FOOTER (NO MAP) --- */
 footer {
-  margin-top: 0;
-  padding-top: 0;
-}
-.why-choose {
-  text-align: center;
-  padding: 50px 20px;
-}
-
-.why-choose ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 20px;
+    background: #000a1a; /* Darkest Navy */
+    color: #ffffff;
+    padding: 80px 0 0;
+    font-family: 'Poppins', sans-serif;
+    border-top: 5px solid #00aaff;
+    box-shadow: 0 -15px 40px rgba(0, 170, 255, 0.15); /* Top Glow */
 }
 
-.why-choose ul li {
-  margin-bottom: 10px;
-}
-/* ===== HERO SPACING FIX ===== */
-.hero {
-  min-height: 80vh;          /* full screen aavenda */
-  padding: 60px 20px;        /* space kurachu */
-  display: flex;
-  align-items: center;
-}
-
-.hero-content {
-  max-width: 900px;
-  margin: auto;
+.footer-container {
+    width: 90%;
+    max-width: 1400px; /* Laptop-il nalla wide aayi nilkkan */
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    padding-bottom: 60px;
 }
 
-.hero-content h1 {
-  margin-bottom: 12px;
+.footer-box {
+    padding: 20px;
 }
 
-.hero-content p {
-  margin: 8px 0;
+.footer-box h3 {
+    color: #00aaff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 170, 255, 0.4);
 }
 
-/* ===== SUPPORT LINE COMPACT ===== */
-.support-line {
-  font-size: 0.95rem;
-  margin: 4px 0;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
+.footer-box p {
+    color: #a5b4fc;
+    line-height: 1.8;
+    font-size: 0.95rem;
 }
 
-.support-line:nth-of-type(1) { animation-delay: 0.2s; }
-.support-line:nth-of-type(2) { animation-delay: 0.4s; }
-.support-line:nth-of-type(3) { animation-delay: 0.6s; }
-
-/* ===== BUTTON SPACING ===== */
-.hero-buttons {
-  margin-top: 20px;
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+/* Stylish Links */
+.footer-links { list-style: none; padding: 0; }
+.footer-links li { margin-bottom: 15px; }
+.footer-links li a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-/* ===== NUMBER ANIMATION (CSS ONLY) ===== */
-@keyframes countPop {
-  from {
-    transform: scale(0.95);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+.footer-links li a:hover {
+    color: #00aaff;
+    transform: translateX(10px);
 }
 
-.support-line:first-of-type {
-  font-weight: 600;
-  animation: countPop 0.6s ease forwards;
-}
+.footer-links li i { font-size: 0.8rem; }
 
-/* ===== SIMPLE FADE-UP ===== */
-@keyframes fadeUp {
-  from {
-    transform: translateY(10px);
-    opacity: 0;
-  }
-  to {
-        /* ===== SCROLL ANIMATION BASE ===== */
-.animate-on-scroll {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.animate-on-scroll.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Left / Right optional */
-.from-left {
-  transform: translateX(-50px);
-}
-
-.from-right {
-  transform: translateX(50px);
-}
-
-.from-left.show,
-.from-right.show {
-  transform: translateX(0);
-}
-<style>
-.hero {
-  position: relative;
-  height: 100vh;
-  background-image: url('https://i.postimg.cc/YOUR_IMAGE_LINK.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  perspective: 1000px; /* Needed for 3D effect */
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.5);
-  z-index: 1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  transform-style: preserve-3d;
-}
-
-.hero-content h1,
-.hero-content p,
-.hero-buttons a {
-  display: inline-block;
-  opacity: 0;
-  transform: rotateX(90deg) translateZ(50px); /* start rotated and pushed forward */
-  animation: fadeSlide3D 1s forwards;
-}
-
-/* Sequential animation delay */
-.hero-content h1 { animation-delay: 0.3s; }
-.hero-content p:nth-of-type(1) { animation-delay: 0.6s; }
-.hero-content p:nth-of-type(2) { animation-delay: 0.9s; }
-.hero-content p:nth-of-type(3) { animation-delay: 1.2s; }
-
-.hero-buttons a:nth-child(1) { animation-delay: 1.5s; }
-.hero-buttons a:nth-child(2) { animation-delay: 1.8s; }
-
-/* 3D Keyframes */
-@keyframes fadeSlide3D {
-  to {
-    opacity: 1;
-    transform: rotateX(0deg) translateZ(0);
-  }
-}
-
-/* Buttons styling */
-.hero-buttons a {
-  margin: 10px;
-  padding: 12px 25px;
-  border-radius: 5px;
-  text-decoration: none;
-  color: white;
-  background-color: rgba(0,0,0,0.6);
-  transition: transform 0.3s;
-}
-.hero-buttons a:hover {
-  transform: translateY(-5px) scale(1.05);
-}
-        /* --- OVERLAP FIX START --- */
-
-/* 1. Header fixed aayathu kondulla overlap maattan */
-header {
-    position: relative !important; /* Fixed maatti relative aakkunnu */
-    height: auto !important;
-    padding: 20px 0;
-}
-
-/* 2. Hero section (Main Heading) mukalilekk kayari pokathirikkaan */
-.hero {
-    margin-top: 0 !important;
-    padding-top: 60px !important; /* Logo-ykk sheshamulla gap ivide adjust cheyyaam */
-}
-
-/* 3. Logo text-um image-um kootti muttathirikkaan */
-.logo {
+/* Contact Badge Style */
+.contact-badge {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 170, 255, 0.2);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
     gap: 15px;
+    transition: 0.3s;
 }
 
-.logo img {
-    height: 120px !important; /* Ivide ningalkku vendra vlippam kodukkuka */
-    width: auto !important;
+.contact-badge:hover {
+    background: rgba(0, 170, 255, 0.1);
+    border-color: #00aaff;
 }
 
-/* Mobile-il overlap fix cheyyaan */
-@media (max-width: 768px) {
-    .hero {
-        padding-top: 30px !important;
-    }
-    .logo img {
-        height: 60px !important;
-    }
-}
-/* --- OVERLAP FIX END --- */
-/* --- OVERLAP FIX START --- */
-
-/* 1. Header fixed aayathu kondulla overlap maattan */
-header {
-    position: relative !important; /* Fixed maatti relative aakkunnu */
-    height: auto !important;
-    padding: 20px 0;
+.contact-badge i {
+    font-size: 1.3rem;
+    color: #00aaff;
 }
 
-/* 2. Hero section (Main Heading) mukalilekk kayari pokathirikkaan */
-.hero {
-    margin-top: 0 !important;
-    padding-top: 60px !important; /* Logo-ykk sheshamulla gap ivide adjust cheyyaam */
-}
-
-/* 3. Logo text-um image-um kootti muttathirikkaan */
-.logo {
+/* Social Media */
+.social-glow {
     display: flex;
-    align-items: center;
     gap: 15px;
+    margin-top: 25px;
 }
 
-.logo img {
-    height: 120px !important; /* Ivide ningalkku vendra vlippam kodukkuka */
-    width: auto !important;
-}
-
-/* Mobile-il overlap fix cheyyaan */
-@media (max-width: 768px) {
-    .hero {
-        padding-top: 30px !important;
-    }
-    .logo img {
-        height: 60px !important;
-    }
-}
-/* --- OVERLAP FIX END --- */
-        /* --- FINAL REPAIR CODE --- */
-
-/* 1. Header-ine fixed aayathil ninnum maattunnu */
-header {
-    position: relative !important;
-    height: auto !important;
-    padding: 20px 0 !important;
-    top: 0 !important;
-}
-
-/* 2. Logo valuthaakkanulla code */
-.logo img {
-    height: 120px !important; /* Ivide ningalkku ishtamulla size kodukkaam */
-    width: auto !important;
-}
-
-/* 3. Thazheyulla section-u gap kodukkunnu */
-.hero {
-    margin-top: 0 !important;
-    padding-top: 50px !important;
-}
-
-/* 4. Menu links (Home, Services) position adjust cheyyaan */
-nav {
+.social-glow a {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #fff;
+    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.social-glow a:hover {
+    background: #00aaff;
+    box-shadow: 0 0 15px #00aaff;
+    transform: translateY(-5px);
+}
+
+.footer-bottom-bar {
+    background: #00050d;
+    text-align: center;
+    padding: 25px;
+    font-size: 0.85rem;
+    color: #64748b;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --- PERFECT MOBILE & LAPTOP RESPONSIVENESS --- */
+@media (max-width: 991px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr); /* Tablet-il 2 column */
+    }
+}
+
+@media (max-width: 768px) {
+    footer { padding-top: 60px; }
+    .footer-container {
+        grid-template-columns: 1fr; /* Mobile-il oru column mathram */
+        text-align: center;
+    }
+    .footer-links li a { justify-content: center; }
+    .contact-badge { justify-content: center; text-align: left; }
+    .social-glow { justify-content: center; }
+}
     </style>
 </head>
 <body>
-    <header>
 
-    <div class="container">
-        <nav>
-          <div class="logo">
-    <img src="https://i.postimg.cc/k5ph3Gsm/Whats-App-Image-2026-02-03-at-3-45-59-PM.jpg" alt="THE COPS INDIA Logo">
- <img src="https://i.postimg.cc/DfHJJTj2/Whats-App-Image-2026-02-03-at-3-59-37-PM.jpg" alt="THE COPS INDIA Logo">
-
-</div>
-      <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#stats">Results</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-
-        <!-- Mobile Menu -->
-        <div class="mobile-menu">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#stats">Results</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+<header class="navbar">
+    <div class="nav-container">
+        <div class="logo-group">
+            <img src="https://i.postimg.cc/k5ph3Gsm/Whats-App-Image-2026-02-03-at-3-45-59-PM.jpg" alt="Logo 1">
+            <img src="https://i.postimg.cc/DfHJJTj2/Whats-App-Image-2026-02-03-at-3-59-37-PM.jpg" alt="Logo 2">
         </div>
+
+        <input type="checkbox" id="nav-check" style="display:none;">
+        <label for="nav-check" class="nav-toggler"><i class="fas fa-bars"></i></label>
+
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#home" onclick="document.getElementById('nav-check').checked = false">HOME</a></li>
+                <li><a href="#about" onclick="document.getElementById('nav-check').checked = false">ABOUT</a></li>
+                <li><a href="#services" onclick="document.getElementById('nav-check').checked = false">SERVICES</a></li>
+                <li><a href="#gallery" onclick="document.getElementById('nav-check').checked = false">GALLERY</a></li>
+                <li><a href="#contact" onclick="document.getElementById('nav-check').checked = false">CONTACT</a></li>
+                <li><a href="tel:100" class="emergency-nav">EMERGENCY: 100</a></li>
+            </ul>
+        </nav>
     </div>
 </header>
-    <!-- HERO SECTION -->
-<section class="hero" id="home">
-  <div class="hero-overlay"></div>
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>THE COPS <span>INDIA</span></h1>
+        <p>Reliable Security. Professional Protection. <br> 24/7 safe guarding for your home and business with India's most trusted security force.</p>
 
-  <div class="hero-content">
-    <h1>Trusted Security Services Across India</h1>
+     <div class="hero-btns">
+    <a href="#services" class="btn-main">OUR SERVICES</a>
 
-    <p>
-      Professional Security Solutions for Homes, Offices & Events
-    </p>
+    <a href="tel:+919000000000" class="btn-outline-white">
+        <i class="fas fa-phone-alt"></i> GET IN TOUCH
+    </a>
+</div>
 
-    <p class="support-line">
-      10+ Years Experience | Trained & Verified Security Personnel
-    </p>
-
-    <p class="support-line">
-      📞 24/7 Customer Support Available
-    </p>
-
-    <p class="support-line">
-      ISO Certified Company | Serving Pan India | Safe & Reliable Protection
-    </p>
-
-    <div class="hero-buttons">
-      <a href="#services" class="btn primary">Our Services</a>
-      <a href="#contact" class="btn secondary">Contact Us</a>
-    </div>
-  </div>
+<a href="https://wa.me/919000000000" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
 </section>
+<section id="about">
+    <div class="about-container">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1000&auto=format&fit=crop" alt="Security Team">
+        </div>
 
+        <div class="about-text">
+            <h4>Who We Are</h4>
+            <h2>Leading the Way in Modern Security Solutions</h2>
+            <p>At <strong>THE COPS INDIA</strong>, we provide more than just guarding. We deliver strategic security intelligence, ensuring your assets, people, and peace of mind are always protected. Our team is trained to handle high-pressure situations with discipline and excellence.</p>
 
+            <div class="about-features">
+                <div class="feature-box">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Certified Professionals</span>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Advanced Technology</span>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-clock"></i>
+                    <span>24/7 Rapid Response</span>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-user-secret"></i>
+                    <span>Tactical Intelligence</span>
+                </div>
+            </div>
 
-
-    <!-- Clients Logos -->
-    <div class="home-clients container">
-        <div class="client-logo-row">
-            <img src="https://i.postimg.cc/mkfKWNSp/Whats-App-Image-2025-12-25-at-12-50-43-PM-(1).jpg" alt="Client 1">
-            <img src="https://i.postimg.cc/TPjDcT4g/Whats-App-Image-2025-12-25-at-12-50-44-PM-(2).jpg" alt="Client 2">
-            <img src="https://i.postimg.cc/GmwtgZY4/Whats-App-Image-2025-12-25-at-12-50-44-PM-(1).jpg" alt="Client 3">
-            <img src="https://i.postimg.cc/0QbJ17N2/Whats-App-Image-2025-12-25-at-12-50-44-PM.jpg" alt="Client 4">
-            <img src="https://i.postimg.cc/BnLybVw2/Whats-App-Image-2025-12-27-at-12-31-39-PM-(2).jpg" alt="Client 5">
+            <a href="#contact" class="btn btn-white" style="background: var(--primary-blue); color: #fff; margin-top: 30px; display: inline-block;">LEARN MORE</a>
         </div>
     </div>
 </section>
 
-   <!-- Services Section -->
-<section class="services" id="services">
-  <div class="container">
-    <h2 class="section-title">Our Services – ISO Certified Security Solutions</h2>
-
+<section id="services" class="services-section">
+    <h2 class="section-title">Security Solutions We Offer</h2>
     <div class="services-grid">
 
-      <!-- Security Consultation -->
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-user-shield"></i>
+        <div class="service-card">
+            <i class="fas fa-user-shield"></i>
+            <h3>Executive Protection</h3>
+            <p>High-level personal security for VIPs, celebrities, and corporate leaders.</p>
         </div>
-        <h3>Security Consultation</h3>
-        <p>
-          Expert security consultation to assess risks and design effective protection plans for individuals, businesses, and events.
-        </p>
-      </div>
 
-      <!-- Intelligence & Monitoring -->
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-user-secret"></i>
+        <div class="service-card">
+            <i class="fas fa-building"></i>
+            <h3>Corporate Security</h3>
+            <p>Comprehensive safety solutions for office complexes and business hubs.</p>
         </div>
-        <h3>Security Monitoring & Intelligence</h3>
-        <p>
-          Professional monitoring and information handling to support preventive security and safety operations with full confidentiality.
-        </p>
-      </div>
 
-      <!-- Verification -->
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-id-card"></i>
+        <div class="service-card">
+            <i class="fas fa-industry"></i>
+            <h3>Industrial Security</h3>
+            <p>Specialized protection for factories, warehouses, and manufacturing plants.</p>
         </div>
-        <h3>Background Verification</h3>
-        <p>
-          Employee, personal, and corporate background verification to ensure trust, safety, and compliance.
-        </p>
-      </div>
 
-      <!-- Reporting -->
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-file-alt"></i>
+        <div class="service-card">
+            <i class="fas fa-video"></i>
+            <h3>CCTV & Surveillance</h3>
+            <p>24/7 high-definition monitoring and advanced electronic security systems.</p>
         </div>
-        <h3>Security Reporting</h3>
-        <p>
-          Accurate security assessment reports and documentation prepared for internal, legal, and compliance purposes.
-        </p>
-      </div>
 
-      <!-- Evidence Handling -->
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-camera-retro"></i>
+        <div class="service-card">
+            <i class="fas fa-users-cog"></i>
+            <h3>Event Management</h3>
+            <p>Expert crowd control and security for weddings, concerts, and public events.</p>
         </div>
-        <h3>Evidence Handling & Documentation</h3>
-        <p>
-          Secure handling of photo, video, and document evidence in accordance with legal and safety standards.
-        </p>
-      </div>
 
-      <!-- Follow-Up -->
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-sync-alt"></i>
+        <div class="service-card">
+            <i class="fas fa-home"></i>
+            <h3>Residential Security</h3>
+            <p>Round-the-clock guarding for apartments, villas, and gated communities.</p>
         </div>
-        <h3>Security Follow-Up & Review</h3>
-        <p>
-          Continuous security review, monitoring, and follow-up actions to ensure long-term protection and risk reduction.
-        </p>
-      </div>
 
-      <!-- PSO -->
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-shield-alt"></i>
+        <div class="service-card">
+            <i class="fas fa-university"></i>
+            <h3>Bank & ATM Security</h3>
+            <p>Highly trained armed and unarmed guards for financial institutions.</p>
         </div>
-        <h3>PSO with Arms (Ex-Service Men)</h3>
-        <p>
-          Highly trained Personal Security Officers with arms, all ex-service personnel, ensuring maximum personal protection.
-        </p>
-      </div>
 
-      <!-- Gunmen -->
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-gun"></i>
+        <div class="service-card">
+            <i class="fas fa-gun"></i>
+            <h3>Armed Security</h3>
+            <p>Licensed armed personnel for high-risk protection and valuable assets.</p>
         </div>
-        <h3>Gunmen (Ex-Service Men)</h3>
-        <p>
-          Experienced armed security professionals for high-risk and high-profile security requirements.
-        </p>
-      </div>
 
-      <!-- Bouncer -->
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-user-tie"></i>
+        <div class="service-card">
+            <i class="fas fa-fire-extinguisher"></i>
+            <h3>Fire & Safety</h3>
+            <p>Certified guards trained in fire prevention and emergency evacuation.</p>
         </div>
-        <h3>Bouncers</h3>
-        <p>
-          Professional bouncers for events, clubs, corporate functions, and crowd management.
-        </p>
-      </div>
 
-      <!-- Lady Bouncer -->
-      <div class="service-card">
-        <div class="service-icon">
-          <i class="fas fa-female"></i>
+        <div class="service-card">
+            <i class="fas fa-search"></i>
+            <h3>Private Investigation</h3>
+            <p>Discreet background checks and professional investigative services.</p>
         </div>
-        <h3>Lady Bouncers</h3>
-        <p>
-          Trained female security personnel for events, public gatherings, and situations requiring discreet handling.
-        </p>
-      </div>
 
     </div>
-  </div>
-</section>
+<section id="gallery" class="gallery-section">
+    <h2 class="section-title">OUR GALLERY</h2>
 
-      <!-- Achievements Section -->
-<section class="achievements" id="achievements">
-  <div class="container">
-    <h2 class="section-title">Our Achievements</h2>
-
-    <div class="achievements-grid">
-
-      <div class="achievement-card" style="--bg:#ff6b6b;">
-        <i class="fas fa-shield-alt"></i>
-        Residential & Commercial Security
-      </div>
-
-      <div class="achievement-card" style="--bg:#f7b731;">
-        <i class="fas fa-building"></i>
-        Corporate & Office Protection
-      </div>
-
-      <div class="achievement-card" style="--bg:#20bf6b;">
-        <i class="fas fa-users"></i>
-        Trained & Verified Security Personnel
-      </div>
-
-      <div class="achievement-card" style="--bg:#45aaf2;">
-        <i class="fas fa-calendar-check"></i>
-        Event & Crowd Management
-      </div>
-
-      <div class="achievement-card" style="--bg:#a55eea;">
-        <i class="fas fa-user-shield"></i>
-        Personal Security Officers (PSO)
-      </div>
-
-      <div class="achievement-card" style="--bg:#fc5c65;">
-        <i class="fas fa-gun"></i>
-        Armed Security Operations
-      </div>
-
-      <div class="achievement-card" style="--bg:#26de81;">
-        <i class="fas fa-certificate"></i>
-        ISO Certified Security Services
-      </div>
-
-      <div class="achievement-card" style="--bg:#fd9644;">
-        <i class="fas fa-headset"></i>
-        24/7 Security Support
-      </div>
-
-    </div>
-  </div>
-</section>
-
-  <!-- Stats Section -->
-<section class="stats" id="stats">
-  <div class="container">
-    <h2 class="section-title">Our Proven Security Record</h2>
-
-    <div class="stats-grid">
-
-      <div class="stat-item">
-        <div class="stat-number" data-count="550">0</div>
-        <div class="stat-label">Clients Protected Across India</div>
-      </div>
-
-      <div class="stat-item">
-        <div class="stat-number" data-count="98">0</div>
-        <div class="stat-label">Client Satisfaction Rate (%)</div>
-      </div>
-
-      <div class="stat-item">
-        <div class="stat-number" data-count="1200">0</div>
-        <div class="stat-label">Security Assignments Completed</div>
-      </div>
-
-      <div class="stat-item">
-        <div class="stat-number" data-count="24">0</div>
-        <div class="stat-label">24/7 Security Support</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-    <!-- About Section -->
-<section class="about" id="about">
-  <div class="container">
-    <div class="about-content">
-
-      <div class="about-text">
-        <h2>Trusted Professional Security Experts</h2>
-
-        <p>
-          At <strong>The Cops India</strong>, we provide reliable, professional, and ISO-certified security services
-          across India for individuals, businesses, and organizations.
-        </p>
-
-        <p>
-          Our team consists of highly trained security personnel, including ex-service men, equipped to handle
-          residential, corporate, event, and personal security requirements with discipline and responsibility.
-        </p>
-
-        <p>
-          From security planning and deployment to continuous monitoring and reporting, we ensure
-          safety, control, and peace of mind through ethical and legally compliant operations.
-        </p>
-      </div>
-
-      <div class="about-visual">
-        <div class="visual-element"></div>
-        <div class="visual-element"></div>
-        <div class="visual-element"></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-
-
-
-
-<section class="gallery" id="gallery">
-  <div class="container">
-    <h2 class="section-title">Our Gallery</h2>
-
-    <div class="gallery-grid">
-
-
-      <div class="gallery-item">
-        <img src="https://i.postimg.cc/sDDvXJPs/Whats-App-Image-2025-12-27-at-12-16-59-PM.jpg">
-      </div>
-
-      <div class="gallery-item">
-        <img src="https://i.postimg.cc/jSTwTr8J/Whats-App-Image-2025-12-27-at-12-31-39-PM-(1).jpg">
-      </div>
-
-      <div class="gallery-item">
-        <img src="https://i.postimg.cc/ZqFLmcF9/Whats-App-Image-2025-12-27-at-12-31-39-PM.jpg">
-      </div>
-
-      <div class="gallery-item">
-        <img src="https://i.postimg.cc/FHbSkKfx/Whats-App-Image-2025-12-27-at-12-31-38-PM.jpg">
-      </div>
-
-      <div class="gallery-item">
-        <img src="https://i.postimg.cc/ht0rWs0v/Whats-App-Image-2025-12-27-at-12-31-37-PM-(1).jpg">
-      </div>
-
-      <div class="gallery-item">
-        <img src="https://i.postimg.cc/JhDGc4tM/Whats-App-Image-2025-12-27-at-12-31-38-PM-(1).jpg">
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-
-
-<!-- Footer -->
-<footer id="contact">
-  <div class="container">
-    <div class="footer-content">
-
-      <!-- About -->
-      <div class="footer-about">
-        <div class="footer-logo">THE COPS <span>INDIA</span></div>
-        <p>
-          The Cops India is a professional security service company providing trained,
-          reliable, and ISO-certified security solutions across India.
-        </p>
-
-        <div class="social-links">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <div class="gallery-container">
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1582139329536-e7284fece509?q=80&w=1000" alt="Security Ops">
         </div>
-      </div>
 
-      <!-- Quick Links -->
-      <div class="footer-links">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#stats">Our Records</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1557597774-9d2739f85a76?q=80&w=1000" alt="Monitoring">
+        </div>
 
-      <!-- Pan India -->
-      <div class="footer-links">
-        <h3>Pan India Operations</h3>
-        <p>
-          We provide professional security services across India with trained personnel
-          and dedicated regional support.
-        </p>
-      </div>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1000" alt="Team Work">
+        </div>
 
-      <!-- Contact Info -->
-      <div class="footer-links">
-        <h3>Contact Info</h3>
-        <ul>
-          <li>
-            <a href="mailto:info@thecopsindia.com">info@thecopsindia.com</a>
-          </li>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1521791136064-7986c2959210?q=80&w=1000" alt="Field Drill">
+        </div>
 
-          <li>
-            <a href="tel:+919477469929">+91 94774 69929</a><br>
-            <a href="tel:03345267296">033 4526 7296</a>
-          </li>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1000" alt="Tech Check">
+        </div>
 
-          <li>
-            <strong>Head Office:</strong><br>
-            01, The Cops Mansion,<br>
-            Nayanpur, Kolkata – 700136,<br>
-            West Bengal, India
-          </li>
-        </ul>
-      </div>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1000" alt="Night Patrol">
+        </div>
+    </div>
+   <section id="contact" class="contact-section">
+    <h2>Contact Us</h2>
+
+    <div class="contact-grid-full">
+
+        <div class="contact-detail-card">
+            <i class="fas fa-building"></i>
+            <h3>Head Office</h3>
+            <p>01, The Cops Mansion,<br> Nayanpur, Kolkata – 700136,<br> West Bengal, India</p>
+        </div>
+
+        <div class="contact-detail-card">
+            <i class="fas fa-phone-alt"></i>
+            <h3>Call Support</h3>
+            <p><strong>Mobile:</strong> +91 94774 69929</p>
+            <p><strong>Landline:</strong> 033 4526 7296</p>
+        </div>
+
+        <div class="contact-detail-card">
+            <i class="fas fa-envelope-open-text"></i>
+            <h3>Official Email</h3>
+            <p>info@thecopsindia.com</p>
+            <p>support@thecopsindia.com</p>
+        </div>
+
+        <div class="pan-india-box">
+            <i class="fas fa-globe-asia" style="font-size: 2rem; margin-bottom: 15px;"></i>
+            <h3>Pan India Operations</h3>
+            <p>We provide professional security services across India with trained personnel and dedicated regional support. Certified under ISO 9001:2015 for excellence in security management.</p>
+        </div>
 
     </div>
+       <footer>
+    <div class="footer-container">
+        <div class="footer-box">
+            <h3>THE COPS INDIA</h3>
+            <p>ISO 9001:2015 Certified Agency. Leading the security industry with precision, tactical intelligence, and uncompromised protection services across the nation.</p>
+            <div class="social-glow">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://wa.me/919477469929"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
 
-    <!-- Google Map -->
-    <div class="footer-map">
-      <h3>Head Office Location</h3>
-      <iframe
-        src="https://www.google.com/maps?q=Nayanpur,Kolkata,700136,West Bengal&output=embed"
-        width="100%"
-        height="250"
-        style="border:0; border-radius:10px;"
-        loading="lazy">
-      </iframe>
+        <div class="footer-box">
+            <h3>Quick Access</h3>
+            <ul class="footer-links">
+                <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+                <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Support</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-box">
+            <h3>Connect Now</h3>
+            <div class="contact-badge">
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                    <span style="display:block; font-size:0.7rem; color:#00aaff;">CALL US 24/7</span>
+                    <strong style="font-size:1rem;">+91 94774 69929</strong>
+                </div>
+            </div>
+            <div class="contact-badge">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <span style="display:block; font-size:0.7rem; color:#00aaff;">EMAIL US</span>
+                    <strong style="font-size:0.9rem;">info@thecopsindia.com</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-box">
+            <h3>Head Office</h3>
+            <p><i class="fas fa-map-marker-alt" style="color:#00aaff; margin-right:10px;"></i> 01, The Cops Mansion, Nayanpur, Kolkata – 700136, West Bengal, India</p>
+            <div style="margin-top:20px; border-left:3px solid #00aaff; padding-left:15px;">
+                <p style="font-weight:bold; color:#fff; margin-bottom:0;">PAN INDIA</p>
+                <p style="font-size:0.8rem; margin-top:0;">Licensed Operations</p>
+            </div>
+        </div>
     </div>
 
-    <!-- Floating Contact Buttons -->
-    <div class="contact-float">
-
-      <!-- WhatsApp -->
-      <a href="https://wa.me/919477469929" target="_blank" class="float-btn whatsapp">
-        <i class="fab fa-whatsapp"></i>
-      </a>
-
-      <!-- Call -->
-      <a href="tel:+919477469929" class="float-btn call">
-        <i class="fas fa-phone"></i>
-      </a>
-
-      <!-- Email -->
-      <a href="mailto:info@thecopsindia.com" class="float-btn email">
-        <i class="fas fa-envelope"></i>
-      </a>
-
+    <div class="footer-bottom-bar">
+        <p>© 2026 THE COPS INDIA. Your Safety, Our Priority. All Rights Reserved.</p>
     </div>
-
-    <!-- Copyright -->
-    <div class="copyright">
-      <p>
-        &copy; 2025 THE COPS INDIA. All Rights Reserved. | Professional Security Services
-      </p>
-    </div>
-  </div>
 </footer>
-
- <script>
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
-
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('active');
-        mobileMenuBtn.innerHTML = mobileMenu.classList.contains('active')
-            ? '<i class="fas fa-times"></i>'
-            : '<i class="fas fa-bars"></i>';
-    });
-
-    mobileMenuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-        });
-    });
-
-    // Scroll Animation Functionality
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
-
-                // Animate stats counting
-                if (entry.target.classList.contains('stat-item')) {
-                    const statNumber = entry.target.querySelector('.stat-number');
-                    const target = parseInt(statNumber.getAttribute('data-count'));
-                    const duration = 2000; // 2 seconds
-                    const step = target / (duration / 16); // 60fps
-                    let current = 0;
-
-                    const timer = setInterval(() => {
-                        current += step;
-                        if (current >= target) {
-                            statNumber.textContent = target + (statNumber.getAttribute('data-count') === '98' ? '%' : '+');
-                            clearInterval(timer);
-                        } else {
-                            statNumber.textContent = Math.floor(current) + (statNumber.getAttribute('data-count') === '98' ? '%' : '+');
-                        }
-                    }, 16);
-                }
-            }
-        });
-    }, observerOptions);
-
-    // Observe elements for animation
-    document.querySelectorAll('.service-card').forEach(card => {
-        observer.observe(card);
-    });
-
-    document.querySelectorAll('.about-text, .about-visual').forEach(el => {
-        observer.observe(el);
-    });
-
-    document.querySelectorAll('.stat-item').forEach(stat => {
-        observer.observe(stat);
-    });
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Parallax effect for hero circles
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const circles = document.querySelectorAll('.circle');
-
-        circles.forEach((circle, index) => {
-            const speed = 0.3 + (index * 0.1);
-            const yPos = -(scrolled * speed);
-            circle.style.transform = `translateY(${yPos}px) rotate(${scrolled * 0.2}deg)`;
-        });
-    });
-
-    // Initialize animations on page load
-    window.addEventListener('load', () => {
-        // Animate hero content
-        document.querySelector('.hero-content').style.animationDelay = '0.5s';
-
-        // Animate service cards with delay
-        document.querySelectorAll('.service-card').forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.2}s`;
-        });
-    });
-
-
-</script>
-
 </body>
 </html>
