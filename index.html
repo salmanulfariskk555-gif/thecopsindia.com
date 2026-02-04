@@ -484,211 +484,181 @@ html {
         transform: rotate(0deg) !important;
     }
 }
-/* --- CLEAN CONTACT DETAILS SECTION (NO MAP) --- */
-.contact-section {
-    padding: 100px 8%;
-    background: #f8fafc;
-    text-align: center;
+/* --- ENHANCED CONTACT SECTION --- */
+.contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 40px;
 }
 
-.contact-section h2 {
-    font-size: 2.5rem;
-    color: #002d72;
-    margin-bottom: 50px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+/* Contact Info Part */
+.contact-info {
+    flex: 1;
+    min-width: 300px;
 }
 
-.contact-grid-full {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    background: var(--light-gray);
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s;
 }
 
-.contact-detail-card {
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 45, 114, 0.05);
-    transition: 0.4s;
-    border-bottom: 5px solid #00aaff;
+.info-item:hover {
+    transform: translateX(10px);
+    background: #eef2f6;
 }
 
-.contact-detail-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 45, 114, 0.1);
+.info-item i {
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+    background: #fff;
+    padding: 12px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-.contact-detail-card i {
-    font-size: 2.5rem;
-    color: #002d72;
+.info-item h3 {
+    font-size: 1rem;
+    color: var(--secondary-blue);
+    margin-bottom: 5px;
+}
+
+.info-item p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Contact Form Part */
+.contact-form {
+    flex: 1.5;
+    min-width: 300px;
+    background: #fff;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.form-group {
     margin-bottom: 20px;
 }
 
-.contact-detail-card h3 {
-    font-size: 1.3rem;
-    color: #002d72;
-    margin-bottom: 15px;
-    text-transform: uppercase;
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--secondary-blue);
 }
 
-.contact-detail-card p {
-    color: #475569;
-    line-height: 1.6;
-    font-size: 1rem;
-    margin: 0;
-}
-
-/* Specific styling for Pan India section */
-.pan-india-box {
-    grid-column: 1 / -1; /* Full width row */
-    background: linear-gradient(135deg, #002d72 0%, #0046ad 100%);
-    color: white;
-    padding: 40px;
-    border-radius: 20px;
-    margin-top: 20px;
-}
-
-.pan-india-box h3 { color: #00aaff; }
-.pan-india-box p { color: #e2e8f0; }
-
-@media (max-width: 768px) {
-    .contact-section { padding: 60px 5%; }
-}
-
-/* --- PREMIUM GLOWING FOOTER (NO MAP) --- */
-footer {
-    background: #000a1a; /* Darkest Navy */
-    color: #ffffff;
-    padding: 80px 0 0;
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     font-family: 'Poppins', sans-serif;
-    border-top: 5px solid #00aaff;
-    box-shadow: 0 -15px 40px rgba(0, 170, 255, 0.15); /* Top Glow */
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 5px rgba(0, 70, 173, 0.2);
+}
+
+.submit-btn {
+    background: var(--primary-blue);
+    color: white;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background: var(--secondary-blue);
+}
+
+/* Mobile Responsive Fix */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        flex-direction: column;
+    }
+}
+/* --- FULL WIDTH FOOTER FIX --- */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Side blank space ozhivakkan */
+}
+
+.main-footer {
+    background: #001a41 !important; /* Full Dark Blue Background */
+    color: #ffffff;
+    width: 100vw; /* Full Screen Width */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 60px 0 20px 0;
+    display: block;
+    clear: both;
 }
 
 .footer-container {
     width: 90%;
-    max-width: 1400px; /* Laptop-il nalla wide aayi nilkkan */
+    max-width: 1200px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
-    padding-bottom: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
 }
 
-.footer-box {
-    padding: 20px;
+.footer-col {
+    flex: 1;
+    min-width: 250px; /* Mobile-il stack aakaan sahayikkum */
 }
 
-.footer-box h3 {
+.footer-col h3 {
     color: #00aaff;
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 25px;
-    text-transform: uppercase;
-    text-shadow: 0 0 10px rgba(0, 170, 255, 0.4);
+    margin-bottom: 20px;
+    font-size: 1.1rem;
 }
 
-.footer-box p {
-    color: #a5b4fc;
-    line-height: 1.8;
-    font-size: 0.95rem;
-}
+.footer-col ul { list-style: none; padding: 0; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a { color: #fff; text-decoration: none; opacity: 0.8; }
 
-/* Stylish Links */
-.footer-links { list-style: none; padding: 0; }
-.footer-links li { margin-bottom: 15px; }
-.footer-links li a {
-    color: #cbd5e1;
-    text-decoration: none;
-    transition: 0.4s;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.footer-links li a:hover {
-    color: #00aaff;
-    transform: translateX(10px);
-}
-
-.footer-links li i { font-size: 0.8rem; }
-
-/* Contact Badge Style */
-.contact-badge {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(0, 170, 255, 0.2);
-    padding: 15px;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    transition: 0.3s;
-}
-
-.contact-badge:hover {
-    background: rgba(0, 170, 255, 0.1);
-    border-color: #00aaff;
-}
-
-.contact-badge i {
-    font-size: 1.3rem;
-    color: #00aaff;
-}
-
-/* Social Media */
-.social-glow {
-    display: flex;
-    gap: 15px;
-    margin-top: 25px;
-}
-
-.social-glow a {
-    width: 45px;
-    height: 45px;
-    background: rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    color: #fff;
-    transition: 0.3s;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.social-glow a:hover {
-    background: #00aaff;
-    box-shadow: 0 0 15px #00aaff;
-    transform: translateY(-5px);
-}
-
-.footer-bottom-bar {
-    background: #00050d;
+.footer-bottom {
     text-align: center;
-    padding: 25px;
-    font-size: 0.85rem;
-    color: #64748b;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 40px;
+    padding-top: 20px;
+    width: 100%;
 }
 
-/* --- PERFECT MOBILE & LAPTOP RESPONSIVENESS --- */
-@media (max-width: 991px) {
-    .footer-container {
-        grid-template-columns: repeat(2, 1fr); /* Tablet-il 2 column */
-    }
-}
-
+/* MOBILE VIEW */
 @media (max-width: 768px) {
-    footer { padding-top: 60px; }
     .footer-container {
-        grid-template-columns: 1fr; /* Mobile-il oru column mathram */
+        flex-direction: column;
         text-align: center;
     }
-    .footer-links li a { justify-content: center; }
-    .contact-badge { justify-content: center; text-align: left; }
-    .social-glow { justify-content: center; }
+    .footer-col { width: 100%; }
 }
+
     </style>
 </head>
 <body>
@@ -710,7 +680,7 @@ footer {
                 <li><a href="#services" onclick="document.getElementById('nav-check').checked = false">SERVICES</a></li>
                 <li><a href="#gallery" onclick="document.getElementById('nav-check').checked = false">GALLERY</a></li>
                 <li><a href="#contact" onclick="document.getElementById('nav-check').checked = false">CONTACT</a></li>
-                <li><a href="tel:100" class="emergency-nav">EMERGENCY: 100</a></li>
+                <li><a href="tel:123456789" class="emergency-nav">EMERGENCY: 123456789</a></li>
             </ul>
         </nav>
     </div>
@@ -735,7 +705,7 @@ footer {
 <section id="about">
     <div class="about-container">
         <div class="about-image">
-            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1000&auto=format&fit=crop" alt="Security Team">
+            <img src="https://i.postimg.cc/52hfBRxH/Whats-App-Image-2026-02-04-at-4-22-21-PM.jpg" alt="Security Team">
         </div>
 
         <div class="about-text">
@@ -743,7 +713,7 @@ footer {
             <h2>Leading the Way in Modern Security Solutions</h2>
             <p>At <strong>THE COPS INDIA</strong>, we provide more than just guarding. We deliver strategic security intelligence, ensuring your assets, people, and peace of mind are always protected. Our team is trained to handle high-pressure situations with discipline and excellence.</p>
 
-            <div class="about-features">
+            <div>class="about-features">
                 <div class="feature-box">
                     <i class="fas fa-check-circle"></i>
                     <span>Certified Professionals</span>
@@ -837,116 +807,120 @@ footer {
 
     <div class="gallery-container">
         <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1582139329536-e7284fece509?q=80&w=1000" alt="Security Ops">
+            <img src="https://i.postimg.cc/sDDvXJPs/Whats-App-Image-2025-12-27-at-12-16-59-PM.jpg" alt="Security Ops">
         </div>
 
         <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1557597774-9d2739f85a76?q=80&w=1000" alt="Monitoring">
+            <img src="https://i.postimg.cc/jSTwTr8J/Whats-App-Image-2025-12-27-at-12-31-39-PM-(1).jpg" alt="Monitoring">
         </div>
 
         <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1000" alt="Team Work">
+            <img src="https://i.postimg.cc/52hfBRxH/Whats-App-Image-2026-02-04-at-4-22-21-PM.jpg" alt="Team Work">
         </div>
 
         <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1521791136064-7986c2959210?q=80&w=1000" alt="Field Drill">
+            <img src="https://i.postimg.cc/FHbSkKfx/Whats-App-Image-2025-12-27-at-12-31-38-PM.jpg" alt="Field Drill">
         </div>
 
         <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1000" alt="Tech Check">
+            <img src="https://i.postimg.cc/ht0rWs0v/Whats-App-Image-2025-12-27-at-12-31-37-PM-(1).jpg" alt="Tech Check">
         </div>
 
         <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1000" alt="Night Patrol">
+            <img src="https://i.postimg.cc/JhDGc4tM/Whats-App-Image-2025-12-27-at-12-31-38-PM-(1).jpg" alt="Night Patrol">
         </div>
     </div>
-   <section id="contact" class="contact-section">
-    <h2>Contact Us</h2>
+<section id="contact">
+    <h2 class="section-title">Get In Touch</h2>
 
-    <div class="contact-grid-full">
+    <div class="contact-wrapper">
+        <div class="contact-info">
+            <div class="info-item">
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                    <h3>Call Us</h3>
+                    <p>+91 94774 69929</p>
+                </div>
+            </div>
 
-        <div class="contact-detail-card">
-            <i class="fas fa-building"></i>
-            <h3>Head Office</h3>
-            <p>01, The Cops Mansion,<br> Nayanpur, Kolkata – 700136,<br> West Bengal, India</p>
-        </div>
+            <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h3>Email Address</h3>
+                    <p>info@thecopsindia.com</p>
+                </div>
+            </div>
 
-        <div class="contact-detail-card">
-            <i class="fas fa-phone-alt"></i>
-            <h3>Call Support</h3>
-            <p><strong>Mobile:</strong> +91 94774 69929</p>
-            <p><strong>Landline:</strong> 033 4526 7296</p>
-        </div>
+            <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <h3>Office Location</h3>
+                    <p>01, The Cops Mansion, Kolkata, WB</p>
+                </div>
+            </div>
 
-        <div class="contact-detail-card">
-            <i class="fas fa-envelope-open-text"></i>
-            <h3>Official Email</h3>
-            <p>info@thecopsindia.com</p>
-            <p>support@thecopsindia.com</p>
-        </div>
-
-        <div class="pan-india-box">
-            <i class="fas fa-globe-asia" style="font-size: 2rem; margin-bottom: 15px;"></i>
-            <h3>Pan India Operations</h3>
-            <p>We provide professional security services across India with trained personnel and dedicated regional support. Certified under ISO 9001:2015 for excellence in security management.</p>
-        </div>
-
-    </div>
-       <footer>
-    <div class="footer-container">
-        <div class="footer-box">
-            <h3>THE COPS INDIA</h3>
-            <p>ISO 9001:2015 Certified Agency. Leading the security industry with precision, tactical intelligence, and uncompromised protection services across the nation.</p>
-            <div class="social-glow">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://wa.me/919477469929"><i class="fab fa-whatsapp"></i></a>
+            <div class="info-item">
+                <i class="fas fa-clock"></i>
+                <div>
+                    <h3>Working Hours</h3>
+                    <p>24/7 Security Support Available</p>
+                </div>
             </div>
         </div>
 
-        <div class="footer-box">
-            <h3>Quick Access</h3>
-            <ul class="footer-links">
-                <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
-                <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
-                <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
-                <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Support</a></li>
+        <div class="contact-form">
+            <form action="#">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label>Subject</label>
+                    <input type="text" placeholder="Security Service Needed">
+                </div>
+                <div class="form-group">
+                    <label>Your Message</label>
+                    <textarea rows="4" placeholder="How can we help you?" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+   </div> </section> <footer class="main-footer">
+    <div class="footer-container">
+
+        <div class="footer-col">
+            <h3>The Cops India</h3>
+            <p>Reliable Security. Professional Protection. 24/7 Support.</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
 
-        <div class="footer-box">
-            <h3>Connect Now</h3>
-            <div class="contact-badge">
-                <i class="fas fa-phone-alt"></i>
-                <div>
-                    <span style="display:block; font-size:0.7rem; color:#00aaff;">CALL US 24/7</span>
-                    <strong style="font-size:1rem;">+91 94774 69929</strong>
-                </div>
-            </div>
-            <div class="contact-badge">
-                <i class="fas fa-envelope"></i>
-                <div>
-                    <span style="display:block; font-size:0.7rem; color:#00aaff;">EMAIL US</span>
-                    <strong style="font-size:0.9rem;">info@thecopsindia.com</strong>
-                </div>
-            </div>
+        <div class="footer-col">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-phone"></i> +91 94774 69929</p>
+            <p><i class="fas fa-envelope"></i> info@thecopsindia.com</p>
         </div>
 
-        <div class="footer-box">
-            <h3>Head Office</h3>
-            <p><i class="fas fa-map-marker-alt" style="color:#00aaff; margin-right:10px;"></i> 01, The Cops Mansion, Nayanpur, Kolkata – 700136, West Bengal, India</p>
-            <div style="margin-top:20px; border-left:3px solid #00aaff; padding-left:15px;">
-                <p style="font-weight:bold; color:#fff; margin-bottom:0;">PAN INDIA</p>
-                <p style="font-size:0.8rem; margin-top:0;">Licensed Operations</p>
-            </div>
-        </div>
     </div>
 
-    <div class="footer-bottom-bar">
-        <p>© 2026 THE COPS INDIA. Your Safety, Our Priority. All Rights Reserved.</p>
+    <div class="footer-bottom">
+        <p>&copy; 2026 THE COPS INDIA. All Rights Reserved.</p>
     </div>
 </footer>
+
 </body>
 </html>
