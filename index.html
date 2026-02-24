@@ -658,7 +658,130 @@ html, body {
     }
     .footer-col { width: 100%; }
 }
+        /* --- LOGO SECTION (Laptop & Mobile) --- */
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Randu logo-um thammilulla akalam */
+}
 
+/* Laptop Height */
+.logo-group img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Mobile View - 798px-il thazhe ullappol */
+@media (max-width: 768px) {
+    .logo-group img {
+        height: 70px; /* Mobile-il logo cheruthakan */
+    }
+    .logo-group {
+        gap: 8px;
+    }
+}
+/* --- MODERN HORIZONTAL GALLERY --- */
+.gallery-section {
+    padding: 80px 0;
+    background-color: #f8fafc;
+    overflow: hidden;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #0f172a;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+/* Title-inte thazhe ulla line */
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, #059669, #0284c7);
+    border-radius: 10px;
+}
+
+/* Scroll Container */
+.gallery-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 25px;
+    padding: 40px 20px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    cursor: grab;
+}
+
+/* Chrome, Safari, Opera-il scrollbar hide cheyyan */
+.gallery-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Individual Card */
+.gallery-item {
+    flex: 0 0 350px; /* Laptop-il image-inte width */
+    height: 450px;
+    scroll-snap-align: center;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+/* Hover Effects */
+.gallery-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Card-inte ullil ulla overlay text (Optional) */
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1;
+}
+
+.gallery-item:hover::before {
+    opacity: 1;
+}
+
+/* Responsive (Mobile) */
+@media (max-width: 768px) {
+    .gallery-item {
+        flex: 0 0 280px; /* Mobile-il kuraude cheruth */
+        height: 380px;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -680,7 +803,7 @@ html, body {
                 <li><a href="#services" onclick="document.getElementById('nav-check').checked = false">SERVICES</a></li>
                 <li><a href="#gallery" onclick="document.getElementById('nav-check').checked = false">GALLERY</a></li>
                 <li><a href="#contact" onclick="document.getElementById('nav-check').checked = false">CONTACT</a></li>
-                <li><a href="tel:123456789" class="emergency-nav">EMERGENCY: 9477469929</a></li>
+                <li><a href="tel:123456789" class="emergency-nav">EMERGENCY:9477469929</a></li>
             </ul>
         </nav>
     </div>
@@ -688,7 +811,7 @@ html, body {
 <section id="home" class="hero">
     <div class="hero-content">
         <h1>PAN INDIA<span>SERVICES</span></h1>
-       <p>India's trusted security force providing 24/7 protection, high-tech equipment, and expert detective services <strong>across all of India</strong>.</p>
+       <p>India’s trusted supplier of high-quality security equipment, delivering advanced and reliable safety solutions <strong>across India</strong>.</p>
      <div class="hero-btns">
     <a href="#services" class="btn-main">OUR SERVICES</a>
 
@@ -704,41 +827,48 @@ html, body {
 <section id="about">
     <div class="about-container">
         <div class="about-image">
-              <img src="https://i.postimg.cc/k5ph3Gsm/Whats-App-Image-2026-02-03-at-3-45-59-PM.jpg" alt="Security Team">
+            <img src="https://i.postimg.cc/PfMPBcBh/Whats-App-Image-2026-02-24-at-11-11-26-PM.jpg" alt="Security Equipment">
         </div>
 
         <div class="about-text">
             <h4>Who We Are</h4>
-            <h2>Complete Security & Investigation Solutions</h2>
-            <p>At <strong>THE COPS INDIA</strong>, we go beyond traditional guarding. We specialize in high-tech <strong>security equipment installation</strong> and professional <strong>private detective services</strong>. From strategic intelligence to advanced surveillance, we ensure your safety with absolute precision and confidentiality.</p>
+            <h2>Advanced Security Equipment Solutions</h2>
+
+            <p>
+                At <strong>THE COPS INDIA</strong>, we specialize in the sales and installation of
+                <strong>advanced security equipment</strong>. From CCTV surveillance systems to modern access control
+                and alarm solutions, we deliver reliable, high-quality products designed to protect homes,
+                businesses, and institutions with complete confidence.
+            </p>
 
             <div class="about-features">
                 <div class="feature-box">
                     <i class="fas fa-video"></i>
-                    <span>Advanced Security Equipment</span>
+                    <span>CCTV & Surveillance Systems</span>
                 </div>
                 <div class="feature-box">
-                    <i class="fas fa-search"></i>
-                    <span>Professional Detective Services</span>
+                    <i class="fas fa-lock"></i>
+                    <span>Access Control & Alarm Systems</span>
                 </div>
                 <div class="feature-box">
                     <i class="fas fa-shield-alt"></i>
-                    <span>Tactical Intelligence</span>
+                    <span>High-Quality Security Equipment</span>
                 </div>
                 <div class="feature-box">
-                    <i class="fas fa-user-check"></i>
-                    <span>Certified Investigators</span>
+                    <i class="fas fa-tools"></i>
+                    <span>Professional Installation & Support</span>
                 </div>
             </div>
 
-            <a href="#contact" class="btn btn-white" style="background: var(--primary-blue); color: #fff; margin-top: 30px; display: inline-block;">CONSULT OUR EXPERTS</a>
+            <a href="#contact" class="btn btn-white" style="background: var(--primary-blue); color: #fff; margin-top: 30px; display: inline-block;">
+                GET A FREE CONSULTATION
+            </a>
         </div>
     </div>
 </section>
-
   <section class="services" id="services">
     <div class="container">
-        <h2 class="section-title">Our Services – All ISO Certified Solutions</h2>
+        <h2 class="section-title">Our Services – Trusted Security Equipment & Solutions</h2>
 
         <div class="services-grid">
 
@@ -746,82 +876,87 @@ html, body {
                 <div class="service-icon">
                     <i class="fas fa-video"></i>
                 </div>
-                <h3>Security Equipment</h3>
-                <p>Advanced CCTV surveillance, motion sensors, and smart alarm systems for 24/7 protection.</p>
+                <h3>Security Equipment Sales</h3>
+                <p>High-quality CCTV cameras, DVR/NVR systems, motion sensors, and smart alarm solutions.</p>
             </div>
 
             <div class="service-card">
                 <div class="service-icon">
-                    <i class="fas fa-search"></i>
+                    <i class="fas fa-tools"></i>
                 </div>
-                <h3>Detective Services</h3>
-                <p>Expert private investigation, background checks, and discreet surveillance across India.</p>
+                <h3>Installation & Setup</h3>
+                <p>Professional installation and configuration of all security equipment for maximum protection.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <h3>Access Control Systems</h3>
+                <p>Advanced biometric, RFID, and door access control systems for offices and institutions.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <h3>Alarm & Alert Systems</h3>
+                <p>Intruder alarms, fire alarms, and emergency alert systems for 24/7 safety.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>Maintenance & Support</h3>
+                <p>Reliable AMC, servicing, and technical support to keep your systems running smoothly.</p>
             </div>
 
             <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-shield-alt"></i>
                 </div>
-                <h3>PSO with Arms</h3>
-                <p>Professional Security Officers (Ex-Service Men) trained for high-profile protection.</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-gun"></i>
-                </div>
-                <h3>Armed Gunmen</h3>
-                <p>Experienced armed personnel (Ex-Service Men) for high-security residential & commercial needs.</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-user-tie"></i>
-                </div>
-                <h3>Bouncers (M/F)</h3>
-                <p>Professional Male & Female bouncers for events, clubs, and high-end crowd control.</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-file-contract"></i>
-                </div>
-                <h3>Verification & Reports</h3>
-                <p>Comprehensive background verification and detailed investigation reports for legal use.</p>
+                <h3>Customized Security Solutions</h3>
+                <p>Tailor-made security solutions designed for homes, businesses, and commercial spaces.</p>
             </div>
 
         </div>
     </div>
 </section>
+
 <section id="gallery" class="gallery-section">
-    <h2 class="section-title">OUR GALLERY</h2>
+    <h2 class="section-title" style="text-align: center; margin-bottom: 30px;">OUR GALLERY</h2>
 
     <div class="gallery-container">
         <div class="gallery-item">
-            <img src="https://i.postimg.cc/sDDvXJPs/Whats-App-Image-2025-12-27-at-12-16-59-PM.jpg" alt="Security Ops">
+            <img src="https://i.postimg.cc/CxbGnJRb/Whats-App-Image-2026-02-22-at-11-39-59-PM.jpg" alt="Security Ops">
         </div>
 
         <div class="gallery-item">
-            <img src="https://i.postimg.cc/jSTwTr8J/Whats-App-Image-2025-12-27-at-12-31-39-PM-(1).jpg" alt="Monitoring">
+            <img src="https://i.postimg.cc/6pVZp3P8/Whats-App-Image-2026-02-22-at-11-39-57-PM-(1).jpg" alt="Monitoring">
         </div>
 
         <div class="gallery-item">
-            <img src="https://i.postimg.cc/52hfBRxH/Whats-App-Image-2026-02-04-at-4-22-21-PM.jpg" alt="Team Work">
+            <img src="https://i.postimg.cc/c1VTKvFP/Whats-App-Image-2026-02-22-at-11-39-57-PM.jpg" alt="Team Work">
         </div>
 
         <div class="gallery-item">
-            <img src="https://i.postimg.cc/FHbSkKfx/Whats-App-Image-2025-12-27-at-12-31-38-PM.jpg" alt="Field Drill">
+            <img src="https://i.postimg.cc/xTf83Rpn/Whats-App-Image-2026-02-22-at-11-39-52-PM-(1).jpg" alt="Team Work">
         </div>
 
         <div class="gallery-item">
-            <img src="https://i.postimg.cc/ht0rWs0v/Whats-App-Image-2025-12-27-at-12-31-37-PM-(1).jpg" alt="Tech Check">
+            <img src="https://i.postimg.cc/h471qSKd/Whats-App-Image-2026-02-22-at-11-39-55-PM-(1).jpg" alt="Field Drill">
         </div>
 
         <div class="gallery-item">
-            <img src="https://i.postimg.cc/JhDGc4tM/Whats-App-Image-2025-12-27-at-12-31-38-PM-(1).jpg" alt="Night Patrol">
+            <img src="https://i.postimg.cc/52pwmym6/Whats-App-Image-2026-02-22-at-11-39-55-PM.jpg" alt="Tech Check">
         </div>
 
-        </section>
+        <div class="gallery-item">
+            <img src="https://i.postimg.cc/QxJ5XCwW/Whats-App-Image-2026-02-22-at-11-39-54-PM-(1).jpg" alt="Night Patrol">
+        </div>
+    </div>
+</section>
 <section id="contact">
     <h2 class="section-title">Get In Touch</h2>
     <div class="contact-wrapper">
