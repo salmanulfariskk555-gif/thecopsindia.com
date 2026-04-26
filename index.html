@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -682,95 +683,66 @@ html, body {
         gap: 8px;
     }
 }
-/* --- MODERN HORIZONTAL GALLERY --- */
 .gallery-section {
-    padding: 80px 0;
-    background-color: #f8fafc;
-    overflow: hidden;
+    padding: 40px 20px;
+    background: #f5f5f5;
 }
 
 .section-title {
-    font-size: 2.5rem;
-    font-weight: 900;
-    color: #0f172a;
-    letter-spacing: -1px;
-    text-transform: uppercase;
-    position: relative;
-    padding-bottom: 15px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 700;
 }
 
-/* Title-inte thazhe ulla line */
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
-    background: linear-gradient(to right, #059669, #0284c7);
-    border-radius: 10px;
-}
-
-/* Scroll Container */
+/* Grid Layout */
 .gallery-container {
-    display: flex;
-    overflow-x: auto;
-    gap: 25px;
-    padding: 40px 20px;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE/Edge */
-    cursor: grab;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
 }
 
-/* Chrome, Safari, Opera-il scrollbar hide cheyyan */
-.gallery-container::-webkit-scrollbar {
-    display: none;
-}
-
-/* Individual Card */
+/* Card Style */
 .gallery-item {
-    flex: 0 0 350px; /* Laptop-il image-inte width */
-    height: 450px;
-    scroll-snap-align: center;
-    border-radius: 24px;
+    background: #fff;
+    border-radius: 10px;
     overflow: hidden;
-    position: relative;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+    border: 1px solid #eee;
+    transition: 0.3s ease;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
+/* Hover Effect */
+.gallery-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Image (FULL FIT – no crop) */
 .gallery-item img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.7s ease;
+    height: 200px;
+    object-fit: contain; /* IMPORTANT */
+    background: #fff;
+    padding: 10px;
+    transition: 0.3s ease;
 }
 
-/* Hover Effects */
-.gallery-item:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-}
-
+/* Zoom Effect */
 .gallery-item:hover img {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
-/* Card-inte ullil ulla overlay text (Optional) */
-.gallery-item::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
-    opacity: 0;
-    transition: opacity 0.3s;
-    z-index: 1;
-}
-
-.gallery-item:hover::before {
-    opacity: 1;
+/* Text */
+.gallery-item p {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
 }
 
 /* Responsive (Mobile) */
@@ -782,6 +754,21 @@ html, body {
     .section-title {
         font-size: 1.8rem;
     }
+}
+.hero-content h1 {
+    font-size: 42px;
+    font-weight: 700;
+    text-align: center;
+    color: #ffffff; /* white text */
+}
+
+.line {
+    display: block;
+}
+
+/* SERVICES word in blue */
+.hero-content h1 span span {
+    color: #007bff; /* blue */
 }
     </style>
 </head>
@@ -811,7 +798,12 @@ html, body {
 </header>
 <section id="home" class="hero">
     <div class="hero-content">
-        <h1>PAN INDIA<span>SERVICES</span></h1>
+<div class="hero-content">
+    <h1>
+        <span class="line">An Ex Service man Enterprise</span>
+        <span class="line">PAN INDIA <span>SERVICES</span></span>
+    </h1>
+</div>
        <p>India’s trusted supplier of high-quality security equipment, delivering advanced and reliable safety solutions and Detective Investigation Services <strong>across India</strong>.</p>
      <div class="hero-btns">
     <a href="#services" class="btn-main">OUR SERVICES</a>
@@ -964,36 +956,90 @@ html, body {
     </div>
 </section>
 <section id="gallery" class="gallery-section">
-    <h2 class="section-title" style="text-align: center; margin-bottom: 30px;">OUR GALLERY</h2>
+    <h2 class="section-title">OUR GALLERY</h2>
 
     <div class="gallery-container">
+
         <div class="gallery-item">
             <img src="https://i.postimg.cc/CxbGnJRb/Whats-App-Image-2026-02-22-at-11-39-59-PM.jpg" alt="Security Ops">
+            <p>Security Ops</p>
         </div>
 
         <div class="gallery-item">
             <img src="https://i.postimg.cc/6pVZp3P8/Whats-App-Image-2026-02-22-at-11-39-57-PM-(1).jpg" alt="Monitoring">
+            <p>Monitoring</p>
         </div>
 
         <div class="gallery-item">
             <img src="https://i.postimg.cc/c1VTKvFP/Whats-App-Image-2026-02-22-at-11-39-57-PM.jpg" alt="Team Work">
+            <p>Team Work</p>
         </div>
 
         <div class="gallery-item">
             <img src="https://i.postimg.cc/xTf83Rpn/Whats-App-Image-2026-02-22-at-11-39-52-PM-(1).jpg" alt="Team Work">
+            <p>Team Work</p>
         </div>
 
         <div class="gallery-item">
             <img src="https://i.postimg.cc/h471qSKd/Whats-App-Image-2026-02-22-at-11-39-55-PM-(1).jpg" alt="Field Drill">
+            <p>Field Drill</p>
         </div>
 
         <div class="gallery-item">
             <img src="https://i.postimg.cc/52pwmym6/Whats-App-Image-2026-02-22-at-11-39-55-PM.jpg" alt="Tech Check">
+            <p>Tech Check</p>
         </div>
 
         <div class="gallery-item">
             <img src="https://i.postimg.cc/QxJ5XCwW/Whats-App-Image-2026-02-22-at-11-39-54-PM-(1).jpg" alt="Night Patrol">
+            <p>Night Patrol</p>
         </div>
+
+        <div class="gallery-item">
+            <img src="https://i.ibb.co/Bx2589m/Whats-App-Image-2026-04-26-at-10-50-48-AM.jpg" alt="Night Patrol">
+            <p>Night Patrol</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://i.ibb.co/ccKLfWWw/Whats-App-Image-2026-04-26-at-10-50-47-AM-2.jpg" alt="Night Patrol">
+            <p>Night Patrol</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://i.ibb.co/zTLsFckD/Whats-App-Image-2026-04-26-at-10-50-47-AM-1.jpg" alt="Night Patrol">
+            <p>Night Patrol</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://i.ibb.co/d0YMK5JZ/Whats-App-Image-2026-04-26-at-10-50-47-AM.jpg" alt="Night Patrol">
+            <p>Night Patrol</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://i.ibb.co/tpW9vv1H/Whats-App-Image-2026-04-26-at-10-50-46-AM.jpg" alt="Night Patrol">
+            <p>Night Patrol</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://i.ibb.co/bRGbR2D3/Whats-App-Image-2026-04-26-at-10-23-56-AM-1.jpg" alt="Night Patrol">
+            <p>Night Patrol</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://i.ibb.co/GQvsMLZS/Whats-App-Image-2026-04-26-at-10-23-55-AM-2.jpg" alt="Night Patrol">
+            <p>Night Patrol</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://i.ibb.co/hJdktWht/Whats-App-Image-2026-04-26-at-10-23-55-AM-1.jpg" alt="Night Patrol">
+            <p>Night Patrol</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://i.ibb.co/gFtmytpZ/Whats-App-Image-2026-04-26-at-10-23-55-AM.jpg" alt="Night Patrol">
+            <p>Night Patrol</p>
+        </div>
+
     </div>
 </section>
 <section id="contact">
