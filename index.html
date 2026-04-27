@@ -787,6 +787,40 @@ html, body {
 .hero-content h1 span span {
     color: #007bff; /* blue */
 }
+/* Wrapper to hold Text and Stamp side by side */
+.hero-title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Text-um Stamp-um thammilulla akalam */
+    flex-wrap: wrap; /* Mobile-il ketti kidakkathirikkan */
+}
+
+.hero-title {
+    color: #4db8ff; /* Ninte light blue color */
+    font-weight: 800;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* Stamp Image Style */
+.hero-stamp {
+    width: 80px; /* Stamp-inte size avashyathinu adjust cheyyuka */
+    height: auto;
+    object-fit: contain;
+    /* Stamp-inu enthengilum filter venamenkil (e.g., white color aakkan) */
+    /* filter: brightness(0) invert(1); */
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .hero-stamp {
+        width: 60px; /* Mobile-il kurachukoodi cheruthakkunnu */
+    }
+    .hero-title-wrapper {
+        gap: 10px;
+    }
+}
     </style>
 </head>
 <body>
@@ -815,11 +849,12 @@ html, body {
 </header>
 <section id="home" class="hero">
     <div class="hero-content">
-<div class="hero-content">
-    <h1>
-        <span class="line">An Ex Service man Enterprise</span>
-        <span class="line">PAN INDIA <span>SERVICES</span></span>
-    </h1>
+  <div class="hero-title-wrapper">
+    <h1 class="hero-title">AN EX SERVICE MAN ENTERPRISE</h1>
+    <img src="https://i.postimg.cc/vTNrS1qB/Whats-App-Image-2026-04-27-at-10-41-20-AM.jpg" alt="Stamp" class="hero-stamp">
+</div>
+<h2 class="hero-subtitle">PAN INDIA <span>SERVICES</span></h2>
+    
 </div>
        <p>India’s trusted supplier of high-quality security equipment, delivering advanced and reliable safety solutions and Detective Investigation Services <strong>across India</strong>.</p>
      <div class="hero-btns">
@@ -1056,8 +1091,28 @@ html, body {
             <img src="https://i.ibb.co/gFtmytpZ/Whats-App-Image-2026-04-26-at-10-23-55-AM.jpg" alt="Night Patrol">
            
         </div>
+         <div class="gallery-item">
+            <img src="https://i.postimg.cc/05HLDVkY/Whats-App-Image-2026-04-27-at-11-28-10-AM.jpg" alt="Night Patrol">
+           
+        </div>
+        
+                
+                
+         <div class="gallery-item">
+            <img src="https://i.postimg.cc/7P7WJwRx/Whats-App-Image-2026-04-27-at-11-28-09-AM-(1).jpg" alt="Night Patrol">
+           
+        </div>
+        
+           <div class="gallery-item">
+            <img src="https://i.postimg.cc/rwWmvdZ8/Whats-App-Image-2026-04-27-at-11-28-08-AM.jpg" alt="Night Patrol">
+           
+        </div>
+        
+           <div class="gallery-item">
+            <img src="https://i.postimg.cc/6545v2Xw/Whats-App-Image-2026-04-27-at-11-28-09-AM.jpg" alt="Night Patrol">
+           
+        </div>
 
-    </div>
 </section>
 <section id="contact">
     <h2 class="section-title">Confidential Consultation</h2>
