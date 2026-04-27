@@ -783,44 +783,51 @@ html, body {
     display: block;
 }
 
-/* SERVICES word in blue */
-.hero-content h1 span span {
-    color: #007bff; /* blue */
-}
-/* Wrapper to hold Text and Stamp side by side */
+/* Container - Ella elements-ineyum center-il align cheyyan */
 .hero-title-wrapper {
     display: flex;
-    align-items: center;
+    flex-direction: column; /* Stamp mukalil, Text thazhe */
+    align-items: center;    /* Ithaanu STAMP center-il ethikkunnath */
     justify-content: center;
-    gap: 15px; /* Text-um Stamp-um thammilulla akalam */
-    flex-wrap: wrap; /* Mobile-il ketti kidakkathirikkan */
+    width: 100%;
+    margin-bottom: 10px;
 }
 
-.hero-title {
-    color: #4db8ff; /* Ninte light blue color */
-    font-weight: 800;
-    margin: 0;
-    text-transform: uppercase;
-}
-
-/* Stamp Image Style */
+/* Round Stamp Style */
 .hero-stamp {
-    width: 80px; /* Stamp-inte size avashyathinu adjust cheyyuka */
-    height: auto;
-    object-fit: contain;
-    /* Stamp-inu enthengilum filter venamenkil (e.g., white color aakkan) */
-    /* filter: brightness(0) invert(1); */
+    width: 180px;  /* Laptop-il nalla valuppam */
+    height: 180px; /* Perfect round aakan Width-um Height-um ore pole venam */
+    
+    border-radius: 50%; /* Perfect Round Shape */
+    object-fit: cover;  /* Image box-il full fill aayi nilkkan */
+    
+    display: block;
+    margin: 0 auto 20px auto; /* Horizontal center alignment */
+    
+    /* Premium Look-inu vendi oru border */
+    border: 4px solid #4db8ff; 
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading Center Alignment */
+.hero-title {
+    text-align: center;
+    width: 100%;
+    color: #4db8ff;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 0;
 }
 
 /* Mobile Adjustments */
 @media (max-width: 768px) {
     .hero-stamp {
-        width: 60px; /* Mobile-il kurachukoodi cheruthakkunnu */
-    }
-    .hero-title-wrapper {
-        gap: 10px;
+        width: 140px;
+        height: 140px;
+        margin-bottom: 15px;
     }
 }
+
     </style>
 </head>
 <body>
@@ -849,25 +856,28 @@ html, body {
 </header>
 <section id="home" class="hero">
     <div class="hero-content">
-  <div class="hero-title-wrapper">
-    <h1 class="hero-title">AN EX SERVICE MAN ENTERPRISE</h1>
-    <img src="https://i.postimg.cc/vTNrS1qB/Whats-App-Image-2026-04-27-at-10-41-20-AM.jpg" alt="Stamp" class="hero-stamp">
-</div>
-<h2 class="hero-subtitle">PAN INDIA <span>SERVICES</span></h2>
-    
-</div>
-       <p>India’s trusted supplier of high-quality security equipment, delivering advanced and reliable safety solutions and Detective Investigation Services <strong>across India</strong>.</p>
-     <div class="hero-btns">
-    <a href="#services" class="btn-main">OUR SERVICES</a>
+        <div class="hero-title-wrapper">
+            <img src="https://i.postimg.cc/vTNrS1qB/Whats-App-Image-2026-04-27-at-10-41-20-AM.jpg" alt="Stamp" class="hero-stamp">
+            <h1 class="hero-title">AN EX SERVICE MAN ENTERPRISE</h1>
+        </div>
 
-    <a href="tel:+919477469929" class="btn-outline-white">
-        <i class="fas fa-phone-alt"></i> GET IN TOUCH
+        <h1 class="hero-subtitle">PAN INDIA <span>SERVICES</span></h1>
+
+        <p class="hero-description">
+            India’s trusted supplier of high-quality security equipment, delivering advanced and reliable safety solutions and Detective Investigation Services <strong>across India</strong>.
+        </p>
+
+        <div class="hero-btns">
+            <a href="#services" class="btn-main">OUR SERVICES</a>
+            <a href="tel:+919477469929" class="btn-outline-white">
+                <i class="fas fa-phone-alt"></i> GET IN TOUCH
+            </a>
+        </div>
+    </div>
+
+    <a href="https://wa.me/917595972741" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
     </a>
-</div>
-
-<a href="https://wa.me/917595972741" class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-</a>
 </section>
 <section id="about">
     <div class="about-container">
