@@ -827,6 +827,71 @@ html, body {
         margin-bottom: 15px;
     }
 }
+/* --- CLIENT LOGOS SECTION (REPLACEMENT CSS) --- */
+
+/* 1. ലോഗോകൾ വരുന്നത് ഹീറോ സെക്ഷന് ഉള്ളിലായതുകൊണ്ട് മൊത്തം സെക്ഷൻ ക്രമീകരണം */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* 2. ടോപ്പ് ലോഗോ കണ്ടെയ്നർ */
+.home-clients.top-clients {
+    width: 100%;
+    margin-bottom: 40px; /* താഴെയുള്ള സ്റ്റാമ്പുമായിട്ടുള്ള അകലം */
+    padding-top: 20px;
+}
+
+.trust-text {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    opacity: 0.8;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: #ffffff; /* ടെക്സ്റ്റ് വൈറ്റ് */
+    text-align: center;
+}
+
+/* 3. ലോഗോകളുടെ വരി */
+.client-logo-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px; /* ലോഗോകൾ തമ്മിലുള്ള അകലം */
+}
+
+.client-logo-row img {
+    height: 55px; /* ലോഗോയുടെ വലിപ്പം */
+    width: auto;
+    object-fit: contain;
+    background: #ffffff; /* ലോഗോയ്ക്ക് പിന്നിൽ ഒരു ചെറിയ വൈറ്റ് ബാക്ക്ഗ്രൗണ്ട് (ഓപ്ഷണൽ) */
+    padding: 8px;
+    border-radius: 6px;
+    transition: 0.4s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.client-logo-row img:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* 4. മൊബൈൽ ഫോണുകൾക്ക് വേണ്ടിയുള്ള പ്രത്യേക മാറ്റങ്ങൾ */
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 130px; /* Navbar ലോഗോയെ മറയ്ക്കാതിരിക്കാൻ */
+    }
+    .client-logo-row {
+        gap: 15px;
+    }
+    .client-logo-row img {
+        height: 40px; /* മൊബൈലിൽ ലോഗോ അല്പം ചെറുതാകും */
+        padding: 5px;
+    }
+}
 
     </style>
 </head>
@@ -856,7 +921,21 @@ html, body {
 </header>
 <section id="home" class="hero">
     <div class="hero-content">
-        <div class="hero-title-wrapper">
+        
+        <!-- Client Logos moved to the Top -->
+        <div class="home-clients top-clients">
+            <p class="trust-text">TRUSTED BY INDUSTRY LEADERS</p>
+            <div class="client-logo-row">
+                <img src="https://i.postimg.cc/mkfKWNSp/Whats-App-Image-2025-12-25-at-12-50-43-PM-(1).jpg" alt="Client 1">
+                <img src="https://i.postimg.cc/TPjDcT4g/Whats-App-Image-2025-12-25-at-12-50-44-PM-(2).jpg" alt="Client 2">
+                <img src="https://i.postimg.cc/GmwtgZY4/Whats-App-Image-2025-12-25-at-12-50-44-PM-(1).jpg" alt="Client 3">
+                <img src="https://i.postimg.cc/0QbJ17N2/Whats-App-Image-2025-12-25-at-12-50-44-PM.jpg" alt="Client 4">
+                <img src="https://i.postimg.cc/BnLybVw2/Whats-App-Image-2025-12-27-at-12-31-39-PM-(2).jpg" alt="Client 5">
+            </div>
+        </div>
+
+        <!-- Main Identity Section -->
+        <div class="hero-title-wrapper" style="margin-top: 40px;">
             <img src="https://i.postimg.cc/vTNrS1qB/Whats-App-Image-2026-04-27-at-10-41-20-AM.jpg" alt="Stamp" class="hero-stamp">
             <h1 class="hero-title">AN EX SERVICE MAN ENTERPRISE</h1>
         </div>
@@ -864,7 +943,7 @@ html, body {
         <h1 class="hero-subtitle">PAN INDIA <span>SERVICES</span></h1>
 
         <p class="hero-description">
-            India’s trusted supplier of high-quality security equipment, delivering advanced and reliable safety solutions and Detective Investigation Services <strong>across India</strong>.
+            India’s trusted supplier of high-quality security equipment and Detective Investigation Services <strong>across India</strong>.
         </p>
 
         <div class="hero-btns">
@@ -878,6 +957,7 @@ html, body {
     <a href="https://wa.me/919147744147" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
+</section>
 </section>
 <section id="about">
     <div class="about-container">
