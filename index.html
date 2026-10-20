@@ -1,133 +1,1359 @@
 
 
-<!DOCTYPE html><html lang="en"><head>    <meta charset="UTF-8" />    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>    <title>THE COPS INDIA | Security Solutions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>        :root {            --primary-blue: #0046ad;            --secondary-blue: #002d72;            --accent-blue: #00aaff;            --white: #ffffff;            --light-gray: #f4f7f6;            --danger-red: #d90429;            --text-dark: #333333;        }
-- { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>THE COPS INDIA | Security Solutions</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-blue: #0046ad;
+            --secondary-blue: #002d72;
+            --accent-blue: #00aaff;
+            --white: #ffffff;
+            --light-gray: #f4f7f6;
+            --danger-red: #d90429;
+            --text-dark: #333333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Poppins', sans-serif; background: var(--white); color: var(--text-dark); overflow-x: hidden; }
-        /* NAVIGATION */        .navbar {            position: fixed; top: 0; width: 100%; z-index: 2000;            background: var(--white); box-shadow: 0 2px 15px rgba(0,0,0,0.1);            padding: 10px 0;        }        .nav-container {            width: 90%; margin: 0 auto;            display: flex; justify-content: space-between; align-items: center;        }
-        /* LOGO SECTION */        .logo-group { display: flex; align-items: center; gap: 10px; }        .logo-group img { height: 50px; width: auto; object-fit: contain; }
-        .nav-menu ul { display: flex; list-style: none; align-items: center; gap: 20px; }        .nav-menu ul li a {            text-decoration: none; color: var(--secondary-blue);            font-weight: 600; font-size: 0.9rem; transition: 0.3s;        }        .nav-menu ul li a:hover { color: var(--accent-blue); }
-        /* EMERGENCY BTN */        .emergency-nav {            background: var(--danger-red); color: #fff !important;            padding: 8px 15px; border-radius: 5px; animation: pulse 2s infinite;        }
-        @keyframes pulse {            0% { transform: scale(1); }            50% { transform: scale(1.05); }            100% { transform: scale(1); }        }
-        /* MOBILE TOGGLER */        #nav-check { display: none; }        .nav-toggler { display: none; cursor: pointer; color: var(--primary-blue); font-size: 1.5rem; }
-        /* HERO SECTION */        .hero {            padding: 150px 8% 80px; min-height: 80vh;            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));            color: var(--white); text-align: center;            display: flex; flex-direction: column; justify-content: center; align-items: center;        }        .hero h1 { font-size: clamp(2rem, 6vw, 4rem); margin-bottom: 20px; }        .hero p { max-width: 700px; font-size: 1.1rem; opacity: 0.9; margin-bottom: 30px; }
-        .hero-btns { display: flex; gap: 15px; }        .btn { padding: 15px 30px; border-radius: 5px; text-decoration: none; font-weight: 700; transition: 0.3s; }        .btn-white { background: var(--white); color: var(--primary-blue); }        .btn-outline { border: 2px solid var(--white); color: var(--white); }
-        /* SECTIONS */        section { padding: 80px 8%; }        .section-title { text-align: center; color: var(--primary-blue); margin-bottom: 40px; font-size: 2rem; }
-        /* SERVICES */        .services-grid {            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;        }        .service-card {            background: var(--white); padding: 30px; border-radius: 10px;            text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05);            border-bottom: 4px solid var(--primary-blue); transition: 0.3s;        }        .service-card:hover { transform: translateY(-10px); }        .service-card i { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 15px; }
-        /* GALLERY */        .gallery-grid {            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;        }        .gallery-item { height: 200px; border-radius: 8px; overflow: hidden; }        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
-        /* RESPONSIVE */        @media (max-width: 991px) {            .nav-toggler { display: block; }            .nav-menu {                position: fixed; top: 70px; left: -100%; width: 100%;                background: var(--white); height: 100vh; transition: 0.4s; padding: 50px;            }            .nav-menu ul { flex-direction: column; gap: 30px; }            #nav-check:checked ~ .nav-menu { left: 0; }            .logo-group img { height: 40px; }        }
-/* --- MOBILE-FIRST MODERN HERO --- */.hero {    min-height: 100vh;    padding: 120px 5% 60px; /* Mobile-nu pattiya padding */    display: flex;    align-items: center;    justify-content: center;    background: linear-gradient(rgba(0, 45, 114, 0.85), rgba(0, 20, 50, 0.9)),                url('https://images.unsplash.com/photo-1557597774-9d2739f85a76?auto=format&fit=crop&w=1000');    background-size: cover;    background-position: center;    text-align: center;    color: var(--white);}
-.hero-content {    width: 100%;    max-width: 800px;}
-.hero h1 {    font-size: clamp(2.2rem, 8vw, 4.5rem); /* Mobile-il font automatic aayi churuungum */    font-weight: 700;    line-height: 1.2;    margin-bottom: 15px;    text-transform: uppercase;}
-.hero h1 span {    color: #00aaff; /* Logo-ile blue-nu pattiya shade */}
-.hero p {    font-size: clamp(0.95rem, 4vw, 1.2rem);    opacity: 0.9;    margin-bottom: 35px;    line-height: 1.6;    font-weight: 300;    padding: 0 10px;}
-/* Mobile Friendly Buttons */.hero-btns {    display: flex;    flex-direction: column; /* Mobile-il button onnu thazhe onnu varaan */    gap: 15px;    align-items: center;}
-.btn-main {    width: 100%; /* Mobile-il full width */    max-width: 280px;    background: #0046ad;    color: white;    padding: 15px 30px;    border-radius: 8px;    text-decoration: none;    font-weight: 600;    transition: 0.3s;    border: 2px solid #0046ad;}
-.btn-outline-white {    width: 100%;    max-width: 280px;    border: 2px solid #ffffff;    color: #ffffff;    padding: 15px 30px;    border-radius: 8px;    text-decoration: none;    font-weight: 600;    transition: 0.3s;}
-/* Desktop-il Buttons side-by-side varaan */@media (min-width: 768px) {    .hero-btns {        flex-direction: row;        justify-content: center;    }    .btn-main, .btn-outline-white {        width: auto;    }}        /* Smooth Scroll enable cheyyan (vithout JS) */html {    scroll-behavior: smooth;}
-/* Button click cheyyumbol thonnunna effect */.btn-main:active, .btn-outline-white:active {    transform: scale(0.95);    opacity: 0.8;}
-/* Floating WhatsApp Button Styling */.whatsapp-float {    position: fixed;    width: 60px;    height: 60px;    bottom: 20px;    right: 20px;    background-color: #25d366;    color: #FFF;    border-radius: 50px;    text-align: center;    font-size: 30px;    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);    z-index: 3000;    display: flex;    align-items: center;    justify-content: center;    text-decoration: none;    transition: 0.3s;}
-.whatsapp-float:hover {    background-color: #128c7e;    transform: scale(1.1);}
-/* Mobile-il buttons nallonnam valuthayi kaanan */@media (max-width: 768px) {    .hero-btns {        width: 100%;        padding: 0 20px;    }    .btn-main, .btn-outline-white {        display: block;        margin: 10px auto;        text-align: center;    }}        @media (max-width: 991px) {    /* Navbar height adjust for mobile */    .navbar { padding: 15px 0; }
-    .nav-toggler {        display: block;        font-size: 1.8rem;        z-index: 10001; /* Menu-vinu mukalil nilkkan */        transition: 0.3s;    }
-    .nav-menu {        position: fixed;        top: 0;        right: -100%; /* Hidden by default */        width: 100%;        height: 100vh;        background: rgba(0, 45, 114, 0.95); /* Deep Blue Overlay */        backdrop-filter: blur(15px); /* Premium Blur Effect */        display: flex;        flex-direction: column;        justify-content: center;        align-items: center;        transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);        z-index: 10000;    }
-    /* Menu Open State */    #nav-check:checked ~ .nav-menu {        right: 0;    }
-    /* Hamburger to X Animation */    #nav-check:checked ~ .nav-toggler {        color: white;        transform: rotate(90deg);    }
-    .nav-menu ul {        flex-direction: column;        gap: 30px;    }
-    .nav-menu ul li a {        font-size: 1.8rem;        color: white !important;        font-weight: 600;        text-transform: uppercase;    }
-    /* Emergency Button in Mobile Menu */    .emergency-nav {        font-size: 1.2rem !important;        padding: 15px 40px !important;        width: auto;        display: inline-block;    }}        /* --- PREMIUM ABOUT SECTION --- */.about-container {    display: grid;    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));    gap: 50px;    align-items: center;}
-.about-image {    position: relative;    border-radius: 15px;    overflow: hidden;    box-shadow: 20px 20px 0px var(--primary-blue); /* Stylish back frame */}
-.about-image img {    width: 100%;    height: auto;    display: block;    transition: 0.5s;}
-.about-image:hover img {    transform: scale(1.05);}
-.about-text h4 {    color: var(--accent-blue);    text-transform: uppercase;    letter-spacing: 2px;    margin-bottom: 10px;}
-.about-text h2 {    font-size: 2.5rem;    color: var(--secondary-blue);    margin-bottom: 20px;    line-height: 1.2;}
-.about-features {    margin-top: 30px;    display: grid;    grid-template-columns: 1fr 1fr;    gap: 20px;}
-.feature-box {    display: flex;    align-items: center;    gap: 10px;}
-.feature-box i {    color: var(--primary-blue);    font-size: 1.2rem;}
-.feature-box span {    font-weight: 600;    font-size: 0.9rem;}
-/* Mobile Friendly Adjustments */@media (max-width: 768px) {    .about-text h2 { font-size: 2rem; }    .about-image { margin-bottom: 30px; box-shadow: 10px 10px 0px var(--primary-blue); }}        /* --- PREMIUM SERVICES GRID --- */.services-section {    background: var(--light-gray);    padding: 80px 8%;}
-.services-grid {    display: grid;    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));    gap: 25px;    margin-top: 40px;}
-.service-card {    background: var(--white);    padding: 40px 30px;    border-radius: 12px;    text-align: center;    box-shadow: 0 10px 30px rgba(0,0,0,0.05);    transition: all 0.4s ease;    border-top: 5px solid transparent;    display: flex;    flex-direction: column;    justify-content: space-between;}
-.service-card:hover {    transform: translateY(-10px);    border-top: 5px solid var(--primary-blue);    box-shadow: 0 15px 40px rgba(0, 45, 114, 0.15);}
-.service-card i {    font-size: 3rem;    color: var(--primary-blue);    margin-bottom: 20px;}
-.service-card h3 {    font-size: 1.3rem;    color: var(--secondary-blue);    margin-bottom: 15px;    font-weight: 700;}
-.service-card p {    font-size: 0.9rem;    color: #666;    line-height: 1.6;}
-/* Mobile adjustments */@media (max-width: 768px) {    .services-grid {        grid-template-columns: 1fr; /* Mobile-il 1 column mathram */    }}        /* --- ROYAL CLEAN GALLERY --- *//* Gallery Container - Ithaanu size control cheyyunnath */.gallery-container {    display: grid;    /* 450px-il thazhe povaatha reethiyil nalla valiya boxes */    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));     gap: 30px; /* Boxes thammilulla akalam */    padding: 40px 0;}
-/* Gallery Item Box */.gallery-item {    position: relative;    width: 100%;    /* Box nallonam valuthayirikkaan (Landscape or Square) */    aspect-ratio: 16 / 9; /* Cinema screen pole nalla valuthayi kaanam */        background: #000;    border-radius: 15px;    overflow: hidden; /* Purathekku onnum povilla */    box-shadow: 0 15px 35px rgba(0,0,0,0.2);    display: flex;}
-/* Image - Perfect Full Cover (Edge-to-Edge) */.gallery-item img {    width: 100% !important;    height: 100% !important;    object-fit: cover; /* Ithaanu main: Box-inte oro moolayilum image niranju nilkkum */    object-position: center;    display: block;    margin: 0;    padding: 0;    transition: transform 0.7s ease-in-out;}
-/* Hover Effect */.gallery-item:hover img {    transform: scale(1.1);}
-/* Text Overlay - Premium Style */.gallery-item p {    position: absolute;    bottom: 0;    width: 100%;    margin: 0;    padding: 30px 20px 20px;    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));     color: #fff;    text-align: center;    font-size: 1.2rem;    font-weight: 700;    text-transform: uppercase;    letter-spacing: 1.5px;}
-/* Mobile View - Mobile-ilum nalla "Full Screen" look kittan */@media (max-width: 768px) {    .gallery-container {        grid-template-columns: 1fr; /* Mobile-il single image mathram, appol nallonam valuthayi kaanam */        padding: 20px;    }    .gallery-item {        aspect-ratio: 1 / 1; /* Mobile-il square aayirikkum kooduthal valuppam thonnikkuka */    }}/* Mobile Friendly */@media (max-width: 768px) {    .gallery-item {        width: 100%; /* Mobile-il full width */        max-width: 350px;        transform: rotate(0deg) !important;    }}/* --- ENHANCED CONTACT SECTION --- */.contact-wrapper {    display: flex;    flex-wrap: wrap;    gap: 40px;    margin-top: 40px;}
-/* Contact Info Part */.contact-info {    flex: 1;    min-width: 300px;}
-.info-item {    display: flex;    align-items: center;    gap: 15px;    margin-bottom: 25px;    background: var(--light-gray);    padding: 20px;    border-radius: 10px;    transition: 0.3s;}
-.info-item:hover {    transform: translateX(10px);    background: #eef2f6;}
-.info-item i {    font-size: 1.5rem;    color: var(--primary-blue);    background: #fff;    padding: 12px;    border-radius: 50%;    box-shadow: 0 4px 10px rgba(0,0,0,0.05);}
-.info-item h3 {    font-size: 1rem;    color: var(--secondary-blue);    margin-bottom: 5px;}
-.info-item p {    font-size: 0.9rem;    color: #555;}
-/* Contact Form Part */.contact-form {    flex: 1.5;    min-width: 300px;    background: #fff;    padding: 35px;    border-radius: 15px;    box-shadow: 0 10px 30px rgba(0,0,0,0.08);}
-.form-group {    margin-bottom: 20px;}
-.form-group label {    display: block;    font-size: 0.9rem;    font-weight: 600;    margin-bottom: 8px;    color: var(--secondary-blue);}
-.form-group input,.form-group textarea {    width: 100%;    padding: 12px 15px;    border: 1px solid #ddd;    border-radius: 8px;    font-family: 'Poppins', sans-serif;    outline: none;    transition: 0.3s;}
-.form-group input:focus,.form-group textarea:focus {    border-color: var(--primary-blue);    box-shadow: 0 0 5px rgba(0, 70, 173, 0.2);}
-.submit-btn {    background: var(--primary-blue);    color: white;    padding: 14px 30px;    border: none;    border-radius: 8px;    font-weight: 600;    cursor: pointer;    width: 100%;    transition: 0.3s;}
-.submit-btn:hover {    background: var(--secondary-blue);}
-/* Mobile Responsive Fix */@media (max-width: 768px) {    .contact-wrapper {        flex-direction: column;    }}/* --- FULL WIDTH FOOTER FIX --- */html, body {    margin: 0;    padding: 0;    width: 100%;    overflow-x: hidden; /* Side blank space ozhivakkan */}
-.main-footer {    background: #001a41 !important; /* Full Dark Blue Background */    color: #ffffff;    width: 100vw; /* Full Screen Width */    position: relative;    left: 50%;    right: 50%;    margin-left: -50vw;    margin-right: -50vw;    padding: 60px 0 20px 0;    display: block;    clear: both;}
-.footer-container {    width: 90%;    max-width: 1200px;    margin: 0 auto;    display: flex;    flex-wrap: wrap;    justify-content: space-between;    gap: 30px;}
-.footer-col {    flex: 1;    min-width: 250px; /* Mobile-il stack aakaan sahayikkum */}
-.footer-col h3 {    color: #00aaff;    margin-bottom: 20px;    font-size: 1.1rem;}
-.footer-col ul { list-style: none; padding: 0; }.footer-col ul li { margin-bottom: 10px; }.footer-col ul li a { color: #fff; text-decoration: none; opacity: 0.8; }
-.footer-bottom {    text-align: center;    border-top: 1px solid rgba(255,255,255,0.1);    margin-top: 40px;    padding-top: 20px;    width: 100%;}
-/* MOBILE VIEW */@media (max-width: 768px) {    .footer-container {        flex-direction: column;        text-align: center;    }    .footer-col { width: 100%; }}        /* --- LOGO SECTION (Laptop & Mobile) --- */.logo-group {    display: flex;    align-items: center;    gap: 12px; /* Randu logo-um thammilulla akalam */}
-/* Laptop Height */.logo-group img {    height: 80px;    width: auto;    object-fit: contain;}
-/* Mobile View - 798px-il thazhe ullappol */@media (max-width: 768px) {    .logo-group img {        height: 70px; /* Mobile-il logo cheruthakan */    }    .logo-group {        gap: 8px;    }}.gallery-section {    padding: 40px 20px;    background: #f5f5f5;}
-.section-title {    text-align: center;    margin-bottom: 30px;    font-size: 28px;    font-weight: 700;}
-/* Grid Layout */.gallery-container {    display: grid;    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));    gap: 20px;}
-/* Card Style */.gallery-item {    background: #fff;    border-radius: 10px;    overflow: hidden;    text-align: center;    border: 1px solid #eee;    transition: 0.3s ease;
-    display: flex;    flex-direction: column;    justify-content: center;}
-/* Hover Effect */.gallery-item:hover {    transform: translateY(-6px);    box-shadow: 0 10px 25px rgba(0,0,0,0.15);}
-/* Image (FULL FIT – no crop) */.gallery-item img {    width: 100%;    height: 200px;    object-fit: contain; /* IMPORTANT */    background: #fff;    padding: 10px;    transition: 0.3s ease;}
-/* Zoom Effect */.gallery-item:hover img {    transform: scale(1.05);}
-/* Text */.gallery-item p {    padding: 10px;    font-size: 14px;    font-weight: 600;    color: #333;}
-/* Responsive (Mobile) */@media (max-width: 768px) {    .gallery-item {        flex: 0 0 280px; /* Mobile-il kuraude cheruth */        height: 380px;    }    .section-title {        font-size: 1.8rem;    }}.hero-content h1 {    font-size: 42px;    font-weight: 700;    text-align: center;    color: #ffffff; /* white text */}
-.line {    display: block;}
-/* Container - Ella elements-ineyum center-il align cheyyan */.hero-title-wrapper {    display: flex;    flex-direction: column; /* Stamp mukalil, Text thazhe */    align-items: center;    /* Ithaanu STAMP center-il ethikkunnath */    justify-content: center;    width: 100%;    margin-bottom: 10px;}
-/* Round Stamp Style */.hero-stamp {    width: 180px;  /* Laptop-il nalla valuppam */    height: 180px; /* Perfect round aakan Width-um Height-um ore pole venam */        border-radius: 50%; /* Perfect Round Shape */    object-fit: cover;  /* Image box-il full fill aayi nilkkan */        display: block;    margin: 0 auto 20px auto; /* Horizontal center alignment */        /* Premium Look-inu vendi oru border */    border: 4px solid #4db8ff;     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);}
-/* Heading Center Alignment */.hero-title {    text-align: center;    width: 100%;    color: #4db8ff;    font-weight: 800;    text-transform: uppercase;    margin: 0;}
-/* Mobile Adjustments */@media (max-width: 768px) {    .hero-stamp {        width: 140px;        height: 140px;        margin-bottom: 15px;    }}/* --- CLIENT LOGOS SECTION (REPLACEMENT CSS) --- */
-/* 1. ലോഗോകൾ വരുന്നത് ഹീറോ സെക്ഷന് ഉള്ളിലായതുകൊണ്ട് മൊത്തം സെക്ഷൻ ക്രമീകരണം */.hero-content {    display: flex;    flex-direction: column;    align-items: center;    width: 100%;}
-/* 2. ടോപ്പ് ലോഗോ കണ്ടെയ്നർ */.home-clients.top-clients {    width: 100%;    margin-bottom: 40px; /* താഴെയുള്ള സ്റ്റാമ്പുമായിട്ടുള്ള അകലം */    padding-top: 20px;}
-.trust-text {    font-size: 0.7rem;    letter-spacing: 2px;    opacity: 0.8;    margin-bottom: 15px;    text-transform: uppercase;    color: #ffffff; /* ടെക്സ്റ്റ് വൈറ്റ് */    text-align: center;}
-/* 3. ലോഗോകളുടെ വരി */.client-logo-row {    display: flex;    justify-content: center;    align-items: center;    flex-wrap: wrap;    gap: 25px; /* ലോഗോകൾ തമ്മിലുള്ള അകലം */}
-.client-logo-row img {    height: 55px; /* ലോഗോയുടെ വലിപ്പം */    width: auto;    object-fit: contain;    background: #ffffff; /* ലോഗോയ്ക്ക് പിന്നിൽ ഒരു ചെറിയ വൈറ്റ് ബാക്ക്ഗ്രൗണ്ട് (ഓപ്ഷണൽ) */    padding: 8px;    border-radius: 6px;    transition: 0.4s ease;    box-shadow: 0 4px 10px rgba(0,0,0,0.1);}
-.client-logo-row img:hover {    transform: translateY(-5px) scale(1.05);    box-shadow: 0 8px 20px rgba(0,0,0,0.2);}
-/* 4. മൊബൈൽ ഫോണുകൾക്ക് വേണ്ടിയുള്ള പ്രത്യേക മാറ്റങ്ങൾ */@media (max-width: 768px) {    .hero {        padding-top: 130px; /* Navbar ലോഗോയെ മറയ്ക്കാതിരിക്കാൻ */    }    .client-logo-row {        gap: 15px;    }    .client-logo-row img {        height: 40px; /* മൊബൈലിൽ ലോഗോ അല്പം ചെറുതാകും */        padding: 5px;    }}
-    </style></head><body>
-<header class="navbar">    <div class="nav-container">        <div class="logo-group">            <img src="https://i.postimg.cc/vTNrS1qB/Whats-App-Image-2026-04-27-at-10-41-20-AM.jpg" alt="Logo 1">            <img src="https://i.postimg.cc/DfHJJTj2/Whats-App-Image-2026-02-03-at-3-59-37-PM.jpg" alt="Logo 2">        </div>
-        <input type="checkbox" id="nav-check" style="display:none;">        <label for="nav-check" class="nav-toggler"><i class="fas fa-bars"></i></label>
-        <nav class="nav-menu">            <ul>                <li><a href="#home" onclick="document.getElementById('nav-check').checked = false">HOME</a></li>                <li><a href="#about" onclick="document.getElementById('nav-check').checked = false">ABOUT</a></li>                <li><a href="#services" onclick="document.getElementById('nav-check').checked = false">SERVICES</a></li>                <li><a href="#gallery" onclick="document.getElementById('nav-check').checked = false">GALLERY</a></li>                <li><a href="#contact" onclick="document.getElementById('nav-check').checked = false">CONTACT</a></li>                <li><a href="tel:9477469929" class="emergency-nav">EMERGENCY:8282944147</a></li>            </ul>        </nav>    </div></header><section id="home" class="hero">    <div class="hero-content">                <!-- Client Logos moved to the Top -->        <div class="home-clients top-clients">            <p class="trust-text">TRUSTED BY INDUSTRY LEADERS</p>            <div class="client-logo-row">                <img src="https://i.postimg.cc/mkfKWNSp/Whats-App-Image-2025-12-25-at-12-50-43-PM-(1).jpg" alt="Client 1">                <img src="https://i.postimg.cc/TPjDcT4g/Whats-App-Image-2025-12-25-at-12-50-44-PM-(2).jpg" alt="Client 2">                <img src="https://i.postimg.cc/GmwtgZY4/Whats-App-Image-2025-12-25-at-12-50-44-PM-(1).jpg" alt="Client 3">                <img src="https://i.postimg.cc/0QbJ17N2/Whats-App-Image-2025-12-25-at-12-50-44-PM.jpg" alt="Client 4">                <img src="https://i.postimg.cc/BnLybVw2/Whats-App-Image-2025-12-27-at-12-31-39-PM-(2).jpg" alt="Client 5">            </div>        </div>
-        <!-- Main Identity Section -->        <div class="hero-title-wrapper" style="margin-top: 40px;">            <img src="https://i.postimg.cc/vTNrS1qB/Whats-App-Image-2026-04-27-at-10-41-20-AM.jpg" alt="Stamp" class="hero-stamp">            <h1 class="hero-title">AN EX SERVICE MAN ENTERPRISE</h1>        </div>
+
+        /* NAVIGATION */
+        .navbar {
+            position: fixed; top: 0; width: 100%; z-index: 2000;
+            background: var(--white); box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            padding: 10px 0;
+        }
+        .nav-container {
+            width: 90%; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        /* LOGO SECTION */
+        .logo-group { display: flex; align-items: center; gap: 10px; }
+        .logo-group img { height: 50px; width: auto; object-fit: contain; }
+
+        .nav-menu ul { display: flex; list-style: none; align-items: center; gap: 20px; }
+        .nav-menu ul li a {
+            text-decoration: none; color: var(--secondary-blue);
+            font-weight: 600; font-size: 0.9rem; transition: 0.3s;
+        }
+        .nav-menu ul li a:hover { color: var(--accent-blue); }
+
+        /* EMERGENCY BTN */
+        .emergency-nav {
+            background: var(--danger-red); color: #fff !important;
+            padding: 8px 15px; border-radius: 5px; animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* MOBILE TOGGLER */
+        #nav-check { display: none; }
+        .nav-toggler { display: none; cursor: pointer; color: var(--primary-blue); font-size: 1.5rem; }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 150px 8% 80px; min-height: 80vh;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--white); text-align: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+        .hero h1 { font-size: clamp(2rem, 6vw, 4rem); margin-bottom: 20px; }
+        .hero p { max-width: 700px; font-size: 1.1rem; opacity: 0.9; margin-bottom: 30px; }
+
+        .hero-btns { display: flex; gap: 15px; }
+        .btn { padding: 15px 30px; border-radius: 5px; text-decoration: none; font-weight: 700; transition: 0.3s; }
+        .btn-white { background: var(--white); color: var(--primary-blue); }
+        .btn-outline { border: 2px solid var(--white); color: var(--white); }
+
+        /* SECTIONS */
+        section { padding: 80px 8%; }
+        .section-title { text-align: center; color: var(--primary-blue); margin-bottom: 40px; font-size: 2rem; }
+
+        /* SERVICES */
+        .services-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;
+        }
+        .service-card {
+            background: var(--white); padding: 30px; border-radius: 10px;
+            text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--primary-blue); transition: 0.3s;
+        }
+        .service-card:hover { transform: translateY(-10px); }
+        .service-card i { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 15px; }
+
+        /* GALLERY */
+        .gallery-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;
+        }
+        .gallery-item { height: 200px; border-radius: 8px; overflow: hidden; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* RESPONSIVE */
+        @media (max-width: 991px) {
+            .nav-toggler { display: block; }
+            .nav-menu {
+                position: fixed; top: 70px; left: -100%; width: 100%;
+                background: var(--white); height: 100vh; transition: 0.4s; padding: 50px;
+            }
+            .nav-menu ul { flex-direction: column; gap: 30px; }
+            #nav-check:checked ~ .nav-menu { left: 0; }
+            .logo-group img { height: 40px; }
+        }
+
+/* --- MOBILE-FIRST MODERN HERO --- */
+.hero {
+    min-height: 100vh;
+    padding: 120px 5% 60px; /* Mobile-nu pattiya padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0, 45, 114, 0.85), rgba(0, 20, 50, 0.9)),
+                url('https://images.unsplash.com/photo-1557597774-9d2739f85a76?auto=format&fit=crop&w=1000');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: clamp(2.2rem, 8vw, 4.5rem); /* Mobile-il font automatic aayi churuungum */
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.hero h1 span {
+    color: #00aaff; /* Logo-ile blue-nu pattiya shade */
+}
+
+.hero p {
+    font-size: clamp(0.95rem, 4vw, 1.2rem);
+    opacity: 0.9;
+    margin-bottom: 35px;
+    line-height: 1.6;
+    font-weight: 300;
+    padding: 0 10px;
+}
+
+/* Mobile Friendly Buttons */
+.hero-btns {
+    display: flex;
+    flex-direction: column; /* Mobile-il button onnu thazhe onnu varaan */
+    gap: 15px;
+    align-items: center;
+}
+
+.btn-main {
+    width: 100%; /* Mobile-il full width */
+    max-width: 280px;
+    background: #0046ad;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    border: 2px solid #0046ad;
+}
+
+.btn-outline-white {
+    width: 100%;
+    max-width: 280px;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+/* Desktop-il Buttons side-by-side varaan */
+@media (min-width: 768px) {
+    .hero-btns {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .btn-main, .btn-outline-white {
+        width: auto;
+    }
+}
+        /* Smooth Scroll enable cheyyan (vithout JS) */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Button click cheyyumbol thonnunna effect */
+.btn-main:active, .btn-outline-white:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+}
+
+/* Floating WhatsApp Button Styling */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.whatsapp-float:hover {
+    background-color: #128c7e;
+    transform: scale(1.1);
+}
+
+/* Mobile-il buttons nallonnam valuthayi kaanan */
+@media (max-width: 768px) {
+    .hero-btns {
+        width: 100%;
+        padding: 0 20px;
+    }
+    .btn-main, .btn-outline-white {
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+    }
+}
+        @media (max-width: 991px) {
+    /* Navbar height adjust for mobile */
+    .navbar { padding: 15px 0; }
+
+    .nav-toggler {
+        display: block;
+        font-size: 1.8rem;
+        z-index: 10001; /* Menu-vinu mukalil nilkkan */
+        transition: 0.3s;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hidden by default */
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 45, 114, 0.95); /* Deep Blue Overlay */
+        backdrop-filter: blur(15px); /* Premium Blur Effect */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        z-index: 10000;
+    }
+
+    /* Menu Open State */
+    #nav-check:checked ~ .nav-menu {
+        right: 0;
+    }
+
+    /* Hamburger to X Animation */
+    #nav-check:checked ~ .nav-toggler {
+        color: white;
+        transform: rotate(90deg);
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .nav-menu ul li a {
+        font-size: 1.8rem;
+        color: white !important;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    /* Emergency Button in Mobile Menu */
+    .emergency-nav {
+        font-size: 1.2rem !important;
+        padding: 15px 40px !important;
+        width: auto;
+        display: inline-block;
+    }
+}
+        /* --- PREMIUM ABOUT SECTION --- */
+.about-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px;
+    align-items: center;
+}
+
+.about-image {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 20px 20px 0px var(--primary-blue); /* Stylish back frame */
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: 0.5s;
+}
+
+.about-image:hover img {
+    transform: scale(1.05);
+}
+
+.about-text h4 {
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    color: var(--secondary-blue);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.about-features {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.feature-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.feature-box i {
+    color: var(--primary-blue);
+    font-size: 1.2rem;
+}
+
+.feature-box span {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Mobile Friendly Adjustments */
+@media (max-width: 768px) {
+    .about-text h2 { font-size: 2rem; }
+    .about-image { margin-bottom: 30px; box-shadow: 10px 10px 0px var(--primary-blue); }
+}
+        /* --- PREMIUM SERVICES GRID --- */
+.services-section {
+    background: var(--light-gray);
+    padding: 80px 8%;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.service-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.4s ease;
+    border-top: 5px solid transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-top: 5px solid var(--primary-blue);
+    box-shadow: 0 15px 40px rgba(0, 45, 114, 0.15);
+}
+
+.service-card i {
+    font-size: 3rem;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 1.3rem;
+    color: var(--secondary-blue);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.service-card p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr; /* Mobile-il 1 column mathram */
+    }
+}
+        /* --- ROYAL CLEAN GALLERY --- */
+/* Gallery Container - Ithaanu size control cheyyunnath */
+.gallery-container {
+    display: grid;
+    /* 450px-il thazhe povaatha reethiyil nalla valiya boxes */
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); 
+    gap: 30px; /* Boxes thammilulla akalam */
+    padding: 40px 0;
+}
+
+/* Gallery Item Box */
+.gallery-item {
+    position: relative;
+    width: 100%;
+    /* Box nallonam valuthayirikkaan (Landscape or Square) */
+    aspect-ratio: 16 / 9; /* Cinema screen pole nalla valuthayi kaanam */
+    
+    background: #000;
+    border-radius: 15px;
+    overflow: hidden; /* Purathekku onnum povilla */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    display: flex;
+}
+
+/* Image - Perfect Full Cover (Edge-to-Edge) */
+.gallery-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover; /* Ithaanu main: Box-inte oro moolayilum image niranju nilkkum */
+    object-position: center;
+    display: block;
+    margin: 0;
+    padding: 0;
+    transition: transform 0.7s ease-in-out;
+}
+
+/* Hover Effect */
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Text Overlay - Premium Style */
+.gallery-item p {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    padding: 30px 20px 20px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9)); 
+    color: #fff;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Mobile View - Mobile-ilum nalla "Full Screen" look kittan */
+@media (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: 1fr; /* Mobile-il single image mathram, appol nallonam valuthayi kaanam */
+        padding: 20px;
+    }
+    .gallery-item {
+        aspect-ratio: 1 / 1; /* Mobile-il square aayirikkum kooduthal valuppam thonnikkuka */
+    }
+}
+/* Mobile Friendly */
+@media (max-width: 768px) {
+    .gallery-item {
+        width: 100%; /* Mobile-il full width */
+        max-width: 350px;
+        transform: rotate(0deg) !important;
+    }
+}
+/* --- ENHANCED CONTACT SECTION --- */
+.contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+/* Contact Info Part */
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    background: var(--light-gray);
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.info-item:hover {
+    transform: translateX(10px);
+    background: #eef2f6;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+    background: #fff;
+    padding: 12px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.info-item h3 {
+    font-size: 1rem;
+    color: var(--secondary-blue);
+    margin-bottom: 5px;
+}
+
+.info-item p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Contact Form Part */
+.contact-form {
+    flex: 1.5;
+    min-width: 300px;
+    background: #fff;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--secondary-blue);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 5px rgba(0, 70, 173, 0.2);
+}
+
+.submit-btn {
+    background: var(--primary-blue);
+    color: white;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background: var(--secondary-blue);
+}
+
+/* Mobile Responsive Fix */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        flex-direction: column;
+    }
+}
+/* --- FULL WIDTH FOOTER FIX --- */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Side blank space ozhivakkan */
+}
+
+.main-footer {
+    background: #001a41 !important; /* Full Dark Blue Background */
+    color: #ffffff;
+    width: 100vw; /* Full Screen Width */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 60px 0 20px 0;
+    display: block;
+    clear: both;
+}
+
+.footer-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px; /* Mobile-il stack aakaan sahayikkum */
+}
+
+.footer-col h3 {
+    color: #00aaff;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.footer-col ul { list-style: none; padding: 0; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a { color: #fff; text-decoration: none; opacity: 0.8; }
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 40px;
+    padding-top: 20px;
+    width: 100%;
+}
+
+/* MOBILE VIEW */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-col { width: 100%; }
+}
+        /* --- LOGO SECTION (Laptop & Mobile) --- */
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Randu logo-um thammilulla akalam */
+}
+
+/* Laptop Height */
+.logo-group img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Mobile View - 798px-il thazhe ullappol */
+@media (max-width: 768px) {
+    .logo-group img {
+        height: 70px; /* Mobile-il logo cheruthakan */
+    }
+    .logo-group {
+        gap: 8px;
+    }
+}
+.gallery-section {
+    padding: 40px 20px;
+    background: #f5f5f5;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+/* Grid Layout */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* Card Style */
+.gallery-item {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    border: 1px solid #eee;
+    transition: 0.3s ease;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Hover Effect */
+.gallery-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Image (FULL FIT – no crop) */
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain; /* IMPORTANT */
+    background: #fff;
+    padding: 10px;
+    transition: 0.3s ease;
+}
+
+/* Zoom Effect */
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Text */
+.gallery-item p {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Responsive (Mobile) */
+@media (max-width: 768px) {
+    .gallery-item {
+        flex: 0 0 280px; /* Mobile-il kuraude cheruth */
+        height: 380px;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+.hero-content h1 {
+    font-size: 42px;
+    font-weight: 700;
+    text-align: center;
+    color: #ffffff; /* white text */
+}
+
+.line {
+    display: block;
+}
+
+/* Container - Ella elements-ineyum center-il align cheyyan */
+.hero-title-wrapper {
+    display: flex;
+    flex-direction: column; /* Stamp mukalil, Text thazhe */
+    align-items: center;    /* Ithaanu STAMP center-il ethikkunnath */
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Round Stamp Style */
+.hero-stamp {
+    width: 180px;  /* Laptop-il nalla valuppam */
+    height: 180px; /* Perfect round aakan Width-um Height-um ore pole venam */
+    
+    border-radius: 50%; /* Perfect Round Shape */
+    object-fit: cover;  /* Image box-il full fill aayi nilkkan */
+    
+    display: block;
+    margin: 0 auto 20px auto; /* Horizontal center alignment */
+    
+    /* Premium Look-inu vendi oru border */
+    border: 4px solid #4db8ff; 
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading Center Alignment */
+.hero-title {
+    text-align: center;
+    width: 100%;
+    color: #4db8ff;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .hero-stamp {
+        width: 140px;
+        height: 140px;
+        margin-bottom: 15px;
+    }
+}
+/* --- CLIENT LOGOS SECTION (REPLACEMENT CSS) --- */
+
+/* 1. ലോഗോകൾ വരുന്നത് ഹീറോ സെക്ഷന് ഉള്ളിലായതുകൊണ്ട് മൊത്തം സെക്ഷൻ ക്രമീകരണം */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* 2. ടോപ്പ് ലോഗോ കണ്ടെയ്നർ */
+.home-clients.top-clients {
+    width: 100%;
+    margin-bottom: 40px; /* താഴെയുള്ള സ്റ്റാമ്പുമായിട്ടുള്ള അകലം */
+    padding-top: 20px;
+}
+
+.trust-text {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    opacity: 0.8;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: #ffffff; /* ടെക്സ്റ്റ് വൈറ്റ് */
+    text-align: center;
+}
+
+/* 3. ലോഗോകളുടെ വരി */
+.client-logo-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px; /* ലോഗോകൾ തമ്മിലുള്ള അകലം */
+}
+
+.client-logo-row img {
+    height: 55px; /* ലോഗോയുടെ വലിപ്പം */
+    width: auto;
+    object-fit: contain;
+    background: #ffffff; /* ലോഗോയ്ക്ക് പിന്നിൽ ഒരു ചെറിയ വൈറ്റ് ബാക്ക്ഗ്രൗണ്ട് (ഓപ്ഷണൽ) */
+    padding: 8px;
+    border-radius: 6px;
+    transition: 0.4s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.client-logo-row img:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* 4. മൊബൈൽ ഫോണുകൾക്ക് വേണ്ടിയുള്ള പ്രത്യേക മാറ്റങ്ങൾ */
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 130px; /* Navbar ലോഗോയെ മറയ്ക്കാതിരിക്കാൻ */
+    }
+    .client-logo-row {
+        gap: 15px;
+    }
+    .client-logo-row img {
+        height: 40px; /* മൊബൈലിൽ ലോഗോ അല്പം ചെറുതാകും */
+        padding: 5px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+<header class="navbar">
+    <div class="nav-container">
+        <div class="logo-group">
+            <img src="https://i.postimg.cc/vTNrS1qB/Whats-App-Image-2026-04-27-at-10-41-20-AM.jpg" alt="Logo 1">
+            <img src="https://i.postimg.cc/DfHJJTj2/Whats-App-Image-2026-02-03-at-3-59-37-PM.jpg" alt="Logo 2">
+        </div>
+
+        <input type="checkbox" id="nav-check" style="display:none;">
+        <label for="nav-check" class="nav-toggler"><i class="fas fa-bars"></i></label>
+
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#home" onclick="document.getElementById('nav-check').checked = false">HOME</a></li>
+                <li><a href="#about" onclick="document.getElementById('nav-check').checked = false">ABOUT</a></li>
+                <li><a href="#services" onclick="document.getElementById('nav-check').checked = false">SERVICES</a></li>
+                <li><a href="#gallery" onclick="document.getElementById('nav-check').checked = false">GALLERY</a></li>
+                <li><a href="#contact" onclick="document.getElementById('nav-check').checked = false">CONTACT</a></li>
+                <li><a href="tel:9477469929" class="emergency-nav">EMERGENCY:8282944147</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<section id="home" class="hero">
+    <div class="hero-content">
+        
+        <!-- Client Logos moved to the Top -->
+        <div class="home-clients top-clients">
+            <p class="trust-text">TRUSTED BY INDUSTRY LEADERS</p>
+            <div class="client-logo-row">
+                <img src="https://i.postimg.cc/mkfKWNSp/Whats-App-Image-2025-12-25-at-12-50-43-PM-(1).jpg" alt="Client 1">
+                <img src="https://i.postimg.cc/TPjDcT4g/Whats-App-Image-2025-12-25-at-12-50-44-PM-(2).jpg" alt="Client 2">
+                <img src="https://i.postimg.cc/GmwtgZY4/Whats-App-Image-2025-12-25-at-12-50-44-PM-(1).jpg" alt="Client 3">
+                <img src="https://i.postimg.cc/0QbJ17N2/Whats-App-Image-2025-12-25-at-12-50-44-PM.jpg" alt="Client 4">
+                <img src="https://i.postimg.cc/BnLybVw2/Whats-App-Image-2025-12-27-at-12-31-39-PM-(2).jpg" alt="Client 5">
+            </div>
+        </div>
+
+        <!-- Main Identity Section -->
+        <div class="hero-title-wrapper" style="margin-top: 40px;">
+            <img src="https://i.postimg.cc/vTNrS1qB/Whats-App-Image-2026-04-27-at-10-41-20-AM.jpg" alt="Stamp" class="hero-stamp">
+            <h1 class="hero-title">AN EX SERVICE MAN ENTERPRISE</h1>
+        </div>
+
         <h1 class="hero-subtitle">PAN INDIA <span>SERVICES</span></h1>
-        <p class="hero-description">            India’s trusted supplier of high-quality security equipment and Detective Investigation Services <strong>across India</strong>.        </p>
-        <div class="hero-btns">            <a href="#services" class="btn-main">OUR SERVICES</a>            <a href="tel:+919477469929" class="btn-outline-white">                <i class="fas fa-phone-alt"></i> GET IN TOUCH            </a>        </div>    </div>
-    <a href="https://wa.me/919147744147" class="whatsapp-float" target="_blank">        <i class="fab fa-whatsapp"></i>    </a></section></section><section id="about">    <div class="about-container">        <div class="about-image">            <img src="https://i.postimg.cc/vTNrS1qB/Whats-App-Image-2026-04-27-at-10-41-20-AM.jpg" alt="Security Equipment">        </div>
-        <div class="about-text">            <h4>Who We Are</h4>            <h2>Advanced Security Equipment Solutions</h2>
-            <p>                At <strong>THE COPS INDIA</strong>, we specialize in the sales and installation of                <strong>advanced security equipment</strong>. From CCTV surveillance systems to modern access control                and alarm solutions, we deliver reliable, high-quality products designed to protect homes,                businesses, and institutions with complete confidence.And total detective investigation services through Pan-India service.            </p>
-            <div class="about-features">                <div class="feature-box">                    <i class="fas fa-video"></i>                    <span>CCTV & Surveillance Systems</span>                </div>                <div class="feature-box">                    <i class="fas fa-lock"></i>                    <span>Private Detective Investigation</span>                </div>                <div class="feature-box">                    <i class="fas fa-shield-alt"></i>                    <span>High-Quality Security Equipment</span>                </div>                <div class="feature-box">                    <i class="fas fa-tools"></i>                    <span>Professional Installation & Support</span>                </div>            </div>
-            <a href="#contact" class="btn btn-white" style="background: var(--primary-blue); color: #fff; margin-top: 30px; display: inline-block;">                GET A FREE CONSULTATION            </a>        </div>    </div>    </section><section class="services" id="services">    <div class="container">        <h2 class="section-title">Our Services – Security & Intelligence Solutions</h2>
+
+        <p class="hero-description">
+            India’s trusted supplier of high-quality security equipment and Detective Investigation Services <strong>across India</strong>.
+        </p>
+
+        <div class="hero-btns">
+            <a href="#services" class="btn-main">OUR SERVICES</a>
+            <a href="tel:+919477469929" class="btn-outline-white">
+                <i class="fas fa-phone-alt"></i> GET IN TOUCH
+            </a>
+        </div>
+    </div>
+
+    <a href="https://wa.me/919147744147" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</section>
+</section>
+<section id="about">
+    <div class="about-container">
+        <div class="about-image">
+            <img src="https://i.postimg.cc/vTNrS1qB/Whats-App-Image-2026-04-27-at-10-41-20-AM.jpg" alt="Security Equipment">
+        </div>
+
+        <div class="about-text">
+            <h4>Who We Are</h4>
+            <h2>Advanced Security Equipment Solutions</h2>
+
+            <p>
+                At <strong>THE COPS INDIA</strong>, we specialize in the sales and installation of
+                <strong>advanced security equipment</strong>. From CCTV surveillance systems to modern access control
+                and alarm solutions, we deliver reliable, high-quality products designed to protect homes,
+                businesses, and institutions with complete confidence.And total detective investigation services through Pan-India service.
+            </p>
+
+            <div class="about-features">
+                <div class="feature-box">
+                    <i class="fas fa-video"></i>
+                    <span>CCTV & Surveillance Systems</span>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-lock"></i>
+                    <span>Private Detective Investigation</span>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>High-Quality Security Equipment</span>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-tools"></i>
+                    <span>Professional Installation & Support</span>
+                </div>
+            </div>
+
+            <a href="#contact" class="btn btn-white" style="background: var(--primary-blue); color: #fff; margin-top: 30px; display: inline-block;">
+                GET A FREE CONSULTATION
+            </a>
+        </div>
+    </div>
+    </section>
+<section class="services" id="services">
+    <div class="container">
+        <h2 class="section-title">Our Services – Security & Intelligence Solutions</h2>
+
         <div class="services-grid">
-            <div class="service-card">                <div class="service-icon">                    <i class="fas fa-user-secret"></i>                </div>                <h3>Private Investigation</h3>                <p>Professional detective services for personal inquiries, background checks, and missing person cases with 100% confidentiality.</p>            </div>
-            <div class="service-card">                <div class="service-icon">                    <i class="fas fa-id-card"></i>                </div>                <h3>Information & Verification</h3>                <p>Discrete information gathering and background verification for individuals, businesses, and legal purposes.</p>            </div>
-            <div class="service-card">                <div class="service-icon">                    <i class="fas fa-camera-retro"></i>                </div>                <h3>Evidence Collection</h3>                <p>Legally captured photo, video, and document evidence handled securely for legal and personal use.</p>            </div>
-            <div class="service-card">                <div class="service-icon">                    <i class="fas fa-video"></i>                </div>                <h3>Security Equipment Sales</h3>                <p>High-quality CCTV cameras, DVR/NVR systems, motion sensors, and smart alarm solutions.</p>            </div>
-            <div class="service-card">                <div class="service-icon">                    <i class="fas fa-fingerprint"></i>                </div>                <h3>Access Control Systems</h3>                <p>Advanced biometric, RFID, and digital door locks to secure your private and professional spaces.</p>            </div>
-            <div class="service-card">                <div class="service-icon">                    <i class="fas fa-microchip"></i>                </div>                <h3>Detective Gadgets</h3>                <p>Advanced hidden cameras, spy voice recorders, GPS trackers, and bug detectors for discrete use.</p>            </div>
-            <div class="service-card">                <div class="service-icon">                    <i class="fas fa-user-shield"></i>                </div>             <div class="service-card">    <h3>PSO</h3>    <p>Professional Security Officers (Ex-Service Men) providing high-level personal protection and safety.</p>        <div class="service-badges">        <span class="badge">Area Valid Arms Licence Holder</span>        <span class="badge">Close Protection Officer</span>    </div></div>
-            <div class="service-card">                <div class="service-icon">                    <i class="fas fa-user-tie"></i>                </div>                <div class="service-card" style="padding: 20px; border: 1px solid #eee; border-radius: 12px; background: #fff; text-align: center;">    <h3 style="color: #0046ad; margin-bottom: 10px;">Bouncer (Male & Female)</h3>    <p style="color: #666; margin-bottom: 15px;">Trained male and lady bouncers for professional crowd control in clubs, events, and private needs.</p>        <div style="text-align: left; background: #f9f9f9; padding: 15px; border-radius: 8px; border-left: 4px solid #0046ad;">        <strong style="display: block; margin-bottom: 8px; color: #333;">We provide:</strong>        <ul style="list-style: none; padding: 0; margin: 0;">            <li style="margin-bottom: 5px; display: flex; align-items: center; font-weight: 500;">                <span style="color: #0046ad; margin-right: 10px;">✔</span> Security staff            </li>            <li style="margin-bottom: 5px; display: flex; align-items: center; font-weight: 500;">                <span style="color: #0046ad; margin-right: 10px;">✔</span> House keeping staff            </li>            <li style="margin-bottom: 5px; display: flex; align-items: center; font-weight: 500;">                <span style="color: #0046ad; margin-right: 10px;">✔</span> Vigilance officer            </li>            <li style="margin-bottom: 5px; display: flex; align-items: center; font-weight: 500;">                <span style="color: #0046ad; margin-right: 10px;">✔</span> Close protection officer            </li>        </ul>        <p style="margin-top: 12px; font-size: 0.85rem; font-weight: 700; color: #0046ad; text-transform: uppercase;">            Through PAN India service        </p>    </div></div>
-            <div class="service-card">                <div class="service-icon">                    <i class="fas fa-laptop-code"></i>                </div>                <h3>Digital Forensics</h3>                <p>Expert investigation into digital data, recovering deleted info, and tracking cyber-based threats.</p>            </div>            <div class="service-card">    <div class="service-icon">        <i class="fas fa-user-check"></i>    </div>    <h3>Employee Background Verification</h3>    <p>Complete employee verification including identity check, address verification, criminal record screening, and employment history validation for companies and organizations.</p></div>
-            <div class="service-card">                <div class="service-icon">                    <i class="fas fa-shield-alt"></i>                </div>                <h3>Maintenance & Support</h3>                <p>Dedicated 24/7 technical support and Annual Maintenance (AMC) for all security and spy systems.</p>            </div>
-        </div>    </div></section><section id="gallery" class="gallery-section">    <h2 class="section-title">OUR GALLERY</h2>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-user-secret"></i>
+                </div>
+                <h3>Private Investigation</h3>
+                <p>Professional detective services for personal inquiries, background checks, and missing person cases with 100% confidentiality.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-id-card"></i>
+                </div>
+                <h3>Information & Verification</h3>
+                <p>Discrete information gathering and background verification for individuals, businesses, and legal purposes.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-camera-retro"></i>
+                </div>
+                <h3>Evidence Collection</h3>
+                <p>Legally captured photo, video, and document evidence handled securely for legal and personal use.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-video"></i>
+                </div>
+                <h3>Security Equipment Sales</h3>
+                <p>High-quality CCTV cameras, DVR/NVR systems, motion sensors, and smart alarm solutions.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-fingerprint"></i>
+                </div>
+                <h3>Access Control Systems</h3>
+                <p>Advanced biometric, RFID, and digital door locks to secure your private and professional spaces.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <h3>Detective Gadgets</h3>
+                <p>Advanced hidden cameras, spy voice recorders, GPS trackers, and bug detectors for discrete use.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+             <div class="service-card">
+    <h3>PSO</h3>
+    <p>Professional Security Officers (Ex-Service Men) providing high-level personal protection and safety.</p>
+    
+    <div class="service-badges">
+        <span class="badge">Area Valid Arms Licence Holder</span>
+        <span class="badge">Close Protection Officer</span>
+    </div>
+</div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="service-card" style="padding: 20px; border: 1px solid #eee; border-radius: 12px; background: #fff; text-align: center;">
+    <h3 style="color: #0046ad; margin-bottom: 10px;">Bouncer (Male & Female)</h3>
+    <p style="color: #666; margin-bottom: 15px;">Trained male and lady bouncers for professional crowd control in clubs, events, and private needs.</p>
+    
+    <div style="text-align: left; background: #f9f9f9; padding: 15px; border-radius: 8px; border-left: 4px solid #0046ad;">
+        <strong style="display: block; margin-bottom: 8px; color: #333;">We provide:</strong>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="margin-bottom: 5px; display: flex; align-items: center; font-weight: 500;">
+                <span style="color: #0046ad; margin-right: 10px;">✔</span> Security staff
+            </li>
+            <li style="margin-bottom: 5px; display: flex; align-items: center; font-weight: 500;">
+                <span style="color: #0046ad; margin-right: 10px;">✔</span> House keeping staff
+            </li>
+            <li style="margin-bottom: 5px; display: flex; align-items: center; font-weight: 500;">
+                <span style="color: #0046ad; margin-right: 10px;">✔</span> Vigilance officer
+            </li>
+            <li style="margin-bottom: 5px; display: flex; align-items: center; font-weight: 500;">
+                <span style="color: #0046ad; margin-right: 10px;">✔</span> Close protection officer
+            </li>
+        </ul>
+        <p style="margin-top: 12px; font-size: 0.85rem; font-weight: 700; color: #0046ad; text-transform: uppercase;">
+            Through PAN India service
+        </p>
+    </div>
+</div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>Digital Forensics</h3>
+                <p>Expert investigation into digital data, recovering deleted info, and tracking cyber-based threats.</p>
+            </div>
+            <div class="service-card">
+    <div class="service-icon">
+        <i class="fas fa-user-check"></i>
+    </div>
+    <h3>Employee Background Verification</h3>
+    <p>Complete employee verification including identity check, address verification, criminal record screening, and employment history validation for companies and organizations.</p>
+</div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Maintenance & Support</h3>
+                <p>Dedicated 24/7 technical support and Annual Maintenance (AMC) for all security and spy systems.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section id="gallery" class="gallery-section">
+    <h2 class="section-title">OUR GALLERY</h2>
+
     <div class="gallery-container">
-        <div class="gallery-item">            <img src="https://i.postimg.cc/CxbGnJRb/Whats-App-Image-2026-02-22-at-11-39-59-PM.jpg" alt="Security Ops">                   </div>
-        <div class="gallery-item">            <img src="https://i.postimg.cc/6pVZp3P8/Whats-App-Image-2026-02-22-at-11-39-57-PM-(1).jpg" alt="Monitoring">           
+
+        <div class="gallery-item">
+            <img src="https://i.postimg.cc/CxbGnJRb/Whats-App-Image-2026-02-22-at-11-39-59-PM.jpg" alt="Security Ops">
+           
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://i.postimg.cc/6pVZp3P8/Whats-App-Image-2026-02-22-at-11-39-57-PM-(1).jpg" alt="Monitoring">
+            
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://i.postimg.cc/c1VTKvFP/Whats-App-Image-2026-02-22-at-11-39-57-PM.jpg" alt="Team Work">
+           
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://i.postimg.cc/xTf83Rpn/Whats-App-Image-2026-02-22-at-11-39-52-PM-(1).jpg" alt="Team Work">
+           
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://i.postimg.cc/h471qSKd/Whats-App-Image-2026-02-22-at-11-39-55-PM-(1).jpg" alt="Field Drill">
+           
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://i.postimg.cc/52pwmym6/Whats-App-Image-2026-02-22-at-11-39-55-PM.jpg" alt="Tech Check">
+           
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://i.postimg.cc/QxJ5XCwW/Whats-App-Image-2026-02-22-at-11-39-54-PM-(1).jpg" alt="Night Patrol">
+           
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://i.ibb.co/Bx2589m/Whats-App-Image-2026-04-26-at-10-50-48-AM.jpg" alt="Night Patrol">
+           
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://i.ibb.co/ccKLfWWw/Whats-App-Image-2026-04-26-at-10-50-47-AM-2.jpg" alt="Night Patrol">
+            
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://i.ibb.co/zTLsFckD/Whats-App-Image-2026-04-26-at-10-50-47-AM-1.jpg" alt="Night Patrol">
+           
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://i.ibb.co/d0YMK5JZ/Whats-App-Image-2026-04-26-at-10-50-47-AM.jpg" alt="Night Patrol">
+
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://i.ibb.co/tpW9vv1H/Whats-App-Image-2026-04-26-at-10-50-46-AM.jpg" alt="Night Patrol">
+           
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://i.ibb.co/bRGbR2D3/Whats-App-Image-2026-04-26-at-10-23-56-AM-1.jpg" alt="Night Patrol">
+            
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://i.ibb.co/GQvsMLZS/Whats-App-Image-2026-04-26-at-10-23-55-AM-2.jpg" alt="Night Patrol">
+           
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://i.ibb.co/hJdktWht/Whats-App-Image-2026-04-26-at-10-23-55-AM-1.jpg" alt="Night Patrol">
+            
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://i.ibb.co/gFtmytpZ/Whats-App-Image-2026-04-26-at-10-23-55-AM.jpg" alt="Night Patrol">
+           
+        </div>
+         <div class="gallery-item">
+            <img src="https://i.postimg.cc/05HLDVkY/Whats-App-Image-2026-04-27-at-11-28-10-AM.jpg" alt="Night Patrol">
+           
+        </div>
+        
+                
+                
+         <div class="gallery-item">
+            <img src="https://i.postimg.cc/7P7WJwRx/Whats-App-Image-2026-04-27-at-11-28-09-AM-(1).jpg" alt="Night Patrol">
+           
+        </div>
+        
+           <div class="gallery-item">
+            <img src="https://i.postimg.cc/rwWmvdZ8/Whats-App-Image-2026-04-27-at-11-28-08-AM.jpg" alt="Night Patrol">
+           
+        </div>
+        
+           <div class="gallery-item">
+            <img src="https://i.postimg.cc/6545v2Xw/Whats-App-Image-2026-04-27-at-11-28-09-AM.jpg" alt="Night Patrol">
+           
+        </div>
+
+</section>
+<section id="contact">
+    <h2 class="section-title">Confidential Consultation</h2>
+    <div class="contact-wrapper">
+        <div class="contact-info">
+            <div class="info-item" style="border-left: 4px solid var(--primary-blue); background: #f9f9f9; padding: 15px;">
+                <i class="fas fa-user-shield"></i>
+                <div>
+                    <h3>Pan India Agency</h3>
+                    <p>India's leading network for <strong>Equipments & Private Investigations</strong>.</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                    <h3>24/7 Helpline</h3>
+                   
+                    <p>033 2519026</p>
+                    <p>+91 9147744147</p>
+                    <p>+91 8282944147</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="fas fa-envelope-open-text"></i>
+                <div>
+                    <h3>Secure Email</h3>
+                    <p>info@thecopsindia.com</p>
+                    <p>thecopsindia@gmail.com</p>
+                    <p>detective@spysolutions.in</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="fas fa-building"></i>
+                <div>
+                    <h3>Corporate HQ</h3>
+                    <p>N 403, 405 North Block, 4th Floor, Manipal Centre, Near-Syndicate Bank, Mahatma Gandhi Road, Dickenson Road, Bengaluru, Karnataka 560042</strong></p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="fas fa-lock"></i>
+                <div>
+                    <h3>Privacy Policy</h3>
+                    <p>100% Client Confidentiality Guaranteed</p>
+                </div>
+            </div>
+            <div class="info-item">
+    <i class="fas fa-map-marked-alt"></i>
+    <div>
+        <h3>Our Branches</h3>
+        <p style="line-height:1.8;">
+            <span style="background:#eef3ff;padding:4px 10px;border-radius:6px;margin:3px;display:inline-block;">New Delhi</span>
+            <span style="background:#eef3ff;padding:4px 10px;border-radius:6px;margin:3px;display:inline-block;">Mumbai</span>
+            <span style="background:#eef3ff;padding:4px 10px;border-radius:6px;margin:3px;display:inline-block;">Surat</span>
+            <span style="background:#eef3ff;padding:4px 10px;border-radius:6px;margin:3px;display:inline-block;">Kolkata</span>
+            <span style="background:#eef3ff;padding:4px 10px;border-radius:6px;margin:3px;display:inline-block;">Chennai</span>
+            <span style="background:#eef3ff;padding:4px 10px;border-radius:6px;margin:3px;display:inline-block;">Hyderabad</span>
+            <span style="background:#eef3ff;padding:4px 10px;border-radius:6px;margin:3px;display:inline-block;">Kochi</span>
+            <span style="background:#eef3ff;padding:4px 10px;border-radius:6px;margin:3px;display:inline-block;">Bangalore</span>
+            <span style="background:#eef3ff;padding:4px 10px;border-radius:6px;margin:3px;display:inline-block;">Goa</span>
+             <span style="background:#eef3ff;padding:4px 10px;border-radius:6px;margin:3px;display:inline-block;">pune</span>
+        </p>
+    </div>
+</div>
+        </div>
+
+
+        <div class="contact-form">
+            <form action="#">
+                <div class="form-group">
+                    <label>Full Name / Alias</label>
+                    <input type="text" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label>Contact Number / Email</label>
+                    <input type="text" placeholder="How should we reach you?" required>
+                </div>
+                <div class="form-group">
+                    <label>Service Type</label>
+                    <select style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Poppins', sans-serif;">
+                        <option>Private Investigation</option>
+                        <option>Corporate Detective</option>
+                        <option>Security Equipment Sales</option>
+                        <option>Matrimonial Investigation</option>
+                        <option>Background Verification</option>
+                        <option>Spy Gadgets / Hidden Cameras</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Brief Description (Keep it General)</label>
+                    <textarea rows="4" placeholder="Mention your requirements or request a callback..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Request Discrete Consultation</button>
+            </form>
+        </div>
+    </div>
+</section>
+<footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <h3>The Cops India</h3>
+            <p>Reliable Security. Professional Protection. 24/7 Support.</p>
+        </div>
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-phone"></i> 8282944147</p>
+               <p><i class="fas fa-phone"></i> 9147744147</p>
+            <p><i class="fas fa-envelope"></i> thecopsindia@gmail.com</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 THE COPS INDIA. All Rights Reserved.</p>
+    </div>
+</footer>
